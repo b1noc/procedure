@@ -1,0 +1,48 @@
+vers.;v2.4;Abort Procedure;;3
+0;ALL;BEGIN ABORT PROCEDURE;;3
+0;EGSE;Confirm all valve switches are in OFF position (Except OxDV & HPDV);;3
+0;OBDH;Confirm all valve switches are in OFF position (Except RMOxSV);;3
+0;EGSE;Open OxDV stepwise;;3
+0;EGSE;Open MPV3;;3
+0;EGSE;Check OxOutPT 0 bar;;3
+0;EGSE;Close MPV3;;3
+0;EGSE;Close OxDV;;3
+0;EGSE;Check OxOutPT 0 bar;;3
+0;EGSE;Open HPDV;;3
+0;EGSE;Check HPLPT 0 bar;;3
+0;EGSE;Close HPDV;;3
+0;OBDH;Check ROxTPT & RHPPT 1 Bar, if more: Open & Close stepwise RDV;;3
+0;OBDH;Deactivate Heizi;;2
+0;MRL;Go to MRL;;2
+0;MRL;Close N2O Bottle 1 & N2O Bottle 2;;2
+0;MRL;Go to BlockHouse;;2
+0;EGSE;Open OxDV;;2
+0;EGSE;Open OxV1;;2
+0;EGSE;Check OxInPT1 & OxOutPT 0 Bar;;2
+0;EGSE;Close OxV1;;2
+0;EGSE;Open OxV2;;2
+0;EGSE;Check OxInPT2 & OxOutPT 0 Bar;;2
+0;EGSE;Close OxV2;;2
+0;EGSE;Close OxDV ;;2
+0;MRL;Go to MRL;;2
+0;MRL;Confirm OxInPG1 & OxInPG2 0 Bar;;2
+0;MRL;Close HE Bottle;;2
+0;MRL;Write down remaining Pressure of HE Bottle;;2
+0;MRL;Go to BlockHouse;;2
+0;EGSE;Open HPDV;;2
+0;EGSE;Open HPV2;;2
+0;EGSE;Check pressure HPLPT & HPPT2 0 Bar;;2
+0;EGSE;Close HPV2;;2
+0;EGSE;Close HPDV;;2
+0;MRL;Go to MRL;;2
+0;MRL;Confirm HPPG2 0 Bar;;2
+0;MRL;Close N2 Bottle;;2
+0;MRL;Write down remaining Pressure of N2 Bottle;;2
+0;MRL;Step back;;2
+0;MRL;Open MBV;;2
+0;EGSE;Check and compare pressure HPPT1 with HPPG1;;2
+0;MRL;Close MBV;;2
+0;MRL;Disconnect Zündi;;2
+0;MRL;Safety is ensured;;2
+0;MCC;Turn off area warning light and open barrier;;1
+0;MCC;END OF ABORT Procedure (PHASE GREEN) (Write down Time);;1
