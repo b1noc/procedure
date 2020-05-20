@@ -1,8 +1,8 @@
-vers.;v3.0;Launch Procedure;;0;MRL;MCC;Radar Hill;Time per step;
+vers.;v3.0;Launch Procedure;;0;MRL;MCC;RdHill;Time per step;
+147:35;EGSE;BEGIN of Power on EGSE Sequence;Power on EGSE;1;;;;;
 148:35;EGSE;Check CLD connection;;1;;;;;
 148:35;EGSE;Switch on CLD via Battery & check voltage (24 Volt);;1;;;;;
 148:35;EGSE;Switch on the primary and secondary supply switches on the Control Panel;;1;;;;01:00;
-147:35;EGSE;Power on EGSE;Power on EGSE;1;;;;;
 147:35;EGSE@MRL;Switch on Sup_24V_20A & check voltage (ca. 27,2 Volt);;1;;;;;
 147:35;EGSE@MRL;Switch on Sup_24V_10A & check voltage (ca. 27,2 Volt);;1;;;;;
 147:35;EGSE@MRL;Switch on Sup_12V_10A & check voltage (ca. 13,8 Volt);;1;;;;;
@@ -17,37 +17,51 @@ vers.;v3.0;Launch Procedure;;0;MRL;MCC;Radar Hill;Time per step;
 144:35;EGSE;Confirm PID-VI is running;;1;;;;;
 144:35;EGSE;Rename PID-Logfile;;1;;;;02:00;
 142:35;MRL;Confirm working Personel is grounded;;1;;;;;
+Confirm all 8 Groundingbridges are inserted
 142:35;MRL;Connect Data Umbilical;Connect Data Umbilical;1;;;;00:30;
+EGSE;Turn on EPS_BAT
+EGSE;Turn on EPS_EXT
+EGSE@MRL;Remove 7 Grounding Bridges and leave EPS_BAT inserted
+EGSE@MRL;Insert EPS_EXT Fuse in Power Supply Control Panel
+EGSE@MRL;Confirm green LED at EPS_EXT Fuse is on
+EGSE@MRL;Insert Main_Bus Fuse in Power Supply Control Panel
+EGSE@MRL;Confirm LED at Main_Bus Fuse is OFF. Else Pull fuse and insert all Grounding Bridges
+EGSE@MRL;Set remaining Fuses (except Payload Fuse) and check for green LED
+EGSE;Turn OFF EPS_BAT
+EGSE@MRL;Confirm Main bus LED is on.
 142:05;EGSE;Start EPS via EPS_ext;;1;;;;;
-142:05;EGSE@MRL;Set Fuse in Power supply control panel;;1;;;;;
-142:05;EGSE@MRL;Insert EPS_bat Bridge;;1;;;;02:00;
 140:05;OBDH;Clear SD-Card-using FileZilla FTP;;;;;;01:00;
 139:05;OBDH;Connect to sbRIO;;1;;;;;
 139:05;OBDH;Start RT_Main;;1;;;;;
 139:05;MRL;Confirm 3 beeps at OBC1;;1;;;;;
 139:05;OBDH;Open RT_Sub_HMI;;1;;;;;
 139:05;OBDH;Confirm Main Chute button is disabled;;1;;;;;
+EGSE@MRL;Insert Payload Fuse
+EGSE@MRL;Confirm green LED at Payload Fuse is on
 139:05;MRL;Confirm working Personel is grounded;;1;;;;01:00;
 138:05;MRL;Remove Pneumatic Line from Fueling arm;;1;;;;;
 138:05;MRL;Move Fueling arm to rocket;;1;;;;;
 138:05;MRL;Couple Helium coupling;;1;;;;;
 138:05;MRL;Couple N2O coupling;;1;;;;;
-138:05;MRL;Attach Pneumatic Line to Fueling arm;;1;;;;03:00;
+138:05;MRL;Reattach Pneumatic Line to Fueling arm;;1;;;;03:00;
 135:05;MRL;Confirm that Ignition Umbilical is disconnected;;1;;;;;
 135:05;EGSE;BEGIN EGSE Valve and actuator check Sequence;Valve check;1;;;;;
 135:05;MCC;Check if video recording is enabled @ MCC;;1;;;;00:10;
-134:55;OBDH;Check EPS hardware;;1;;;;00:10;
+134:55;OBDH;Check EPS hardware Voltages;;1;;;;00:10;
 134:45;EGSE;Start PID data recording;;1;;;;00:10;
-134:35;EGSE;Check OxOutPT 0 Bar;;1;;;;00:10;
 134:25;MRL;Close HPNV;;1;;;;00:10;
 134:15;EGSE/MRL;Switch OxDV to closed & check if magnetic valve LED is on;;1;;;;00:10;
 134:05;EGSE/MRL;Switch HPDV to closed & check if magnetic valve LED is on;;1;;;;00:10;
-133:55;EGSE/MRL;Check warning lamp ;;1;;;;00:10;
+133:55;EGSE/MRL;Check warning lamp on HPSM;;1;;;;00:10;
 133:45;MRL;Remove loose equipment;;1;;;;03:00;
 130:45;EGSE;Activate Heizi;;1;;;;00:10;
 130:35;EGSE;Activate N2O_Heater 1;;1;;;;00:10;
 130:25;EGSE;Activate N2O_Heater 2;;1;;;;00:10;
 130:15;EGSE;Activate HE_Heater;;1;;;;00:10;
+128:15;OBDH;Verify Heizi @ RDVT & RDVET;;1;;;;00:10;
+128:35;EGSE/MRL;Verify Bottle Temperatures @ OxT1, OxT2, HPT2;;1;;;;00:10;
+128:25;EGSE/MRL;Verify Water Temperatures @ Ox@T1, OxWT2, HPWT2;;1;;;;00:10;
+128:05;EGSE;Deactivate Heizi;;1;;;;00:10;
 130:05;EGSE;Check OxV1 (CLD & RT_VI);;1;;;;00:10;
 129:55;EGSE;Check OxV2 (CLD & RT_VI);;1;;;;00:10;
 129:45;EGSE;Check MPV3 (CLD & RT_VI);;1;;;;00:10;
@@ -57,17 +71,13 @@ vers.;v3.0;Launch Procedure;;0;MRL;MCC;Radar Hill;Time per step;
 129:05;EGSE;Check RDV (CLD & RT_VI);;1;;;;00:10;
 128:55;EGSE;Check RMOxOV (CLD & RT_VI);;1;;;;00:10;
 128:45;EGSE;Check RMOxSV (CLD & RT_VI);;1;;;;00:10;
-128:35;EGSE/MRL;Verify Bottle Temperatures @ OxT1 OxT2 HPT2;;1;;;;00:10;
-128:25;EGSE/MRL;Verify Water Temperatures @ Ox@T1 OxWT2 HPWT2;;1;;;;00:10;
-128:15;OBDH;Verify Heizi @ RDVT & RDVET;;1;;;;00:10;
-128:05;EGSE;Deactivate Heizi;;1;;;;00:10;
 127:55;OBDH;Activate Heizi;;1;;;;00:10;
+126:55;OBDH;Verify Heizi @ RDVT & RDVET;;1;;;;01:00;
 127:45;OBDH;Check RDV;;1;;;;00:10;
 127:35;OBDH;Check RNCEV;;1;;;;00:10;
 127:25;OBDH;Check RMOxOV;;1;;;;00:10;
 127:15;OBDH;Check RMOxSV;;1;;;;00:10;
 127:05;OBDH;Confirm RNCEV is disabled;;1;;;;00:10;
-126:55;OBDH;Verify Heizi @ RDVT & RDVET;;1;;;;00:10;
 126:45;OBDH/TMTC;Check RF451-Link;;1;;;;00:20;
 126:25;TMTC;Check GPS-lock;;3;;;;00:20;
 126:05;TMTC;Check Telemega-Link;;1;;;;00:20;
