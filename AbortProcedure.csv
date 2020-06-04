@@ -1,21 +1,21 @@
-vers.;v4.16;Abort Procedure;;3;;;;;
+vers.;v4.17;Abort Procedure;;3;;;;;
 0:00;MCC;Inform OPS of Launch Abort;;3;;;;;
 0:00;MCC;BEGIN:Defueling Rocket;Defueling;3;;;;;
-0:00;EGSE;Confirm all valve switches are in OFF position (Except OxDV & HPDV);;3
-0:00;OBDH;Confirm all valve switches are in OFF position (Except RMOxSV);;3
+0:00;EGSE;Confirm all valve switches are in OFF position (Except OxDV & HPDV);;3;;;;;
+0:00;OBDH;Confirm all valve switches are in OFF position (Except RMOxSV);;3;;;;;
 0:00;OBDH;Activate Heizi;;3;;;;;
 0:00;MCC;Turn audio volume up;;2;;;;;
-0:00;EGSE;Open & Close OxDV STEPWISE until OxOutPT 0 Bar;;3
-0:00;EGSE;Open OxDV;;3
-0:00;EGSE;Open MPV3;;3
-0:00;EGSE;Confirm OxOutPT 0 bar;;3
-0:00;EGSE;Close MPV3;;3
-0:00;EGSE;Close OxDV;;3
-0:00;EGSE;Open HPDV;;3
-0:00;EGSE;Confirm HPLPT 0 bar;;3
-0:00;EGSE;Close HPDV;;3
-0:00;OBDH;Confirm ROxTPT & RHPPT 1 Bar, if more: Open & Close stepwise RDV;;3
-0:00;OBDH;Deactivate Heizi;;3
+0:00;EGSE;Open & Close OxDV STEPWISE until OxOutPT 0 Bar;;3;;;;;
+0:00;EGSE;Open OxDV;;3;;;;;
+0:00;EGSE;Open MPV3;;3;;;;;
+0:00;EGSE;Confirm OxOutPT 0 bar;;3;;;;;
+0:00;EGSE;Close MPV3;;3;;;;;
+0:00;EGSE;Close OxDV;;3;;;;;
+0:00;EGSE;Open HPDV;;3;;;;;
+0:00;EGSE;Confirm HPLPT 0 bar;;3;;;;;
+0:00;EGSE;Close HPDV;;3;;;;;
+0:00;OBDH;Confirm ROxTPT & RHPPT 1 Bar, if more: Open & Close stepwise RDV;;3;;;;;
+0:00;OBDH;Deactivate Heizi;;3;;;;;
 0:00;ALL;Wait for Launchpad to be clear of N2O fumes depending on OxMass before Defueling;;3;;;;;
 0:00;MCC;BEGIN: ground segment passivation;GSE Passivation;3;;;;;
 0:00;MCC;Announce BEGIN of Radio Silence;;3;;;;;
@@ -69,4 +69,3 @@ vers.;v4.16;Abort Procedure;;3;;;;;
 0:00;MCC;Restart ComTerm VI;;1;;;;;
 0:00;AVC;Save video & audio data on external HDD;;1;;;;;
 0:00;MCC;END OF PROCEDURE;;1;;;;;
-0;MCC;END OF ABORT Procedure (PHASE GREEN) (Write down Time);;1
