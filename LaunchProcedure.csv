@@ -1,6 +1,6 @@
-vers.;v4.20;Launch Procedure;;0;MRL;MCC;RdHill;Time per step;
-147:20;WIND;Start wind weighting analysis;;1;;;;;
+vers.;v4.22;Launch Procedure;;0;MRL;MCC;RdHill;Time per step;
 147:20;MCC;BEGIN SEQUENCE: Power on EGSE;Power on EGSE;1;;;;;
+147:20;WIND;Start wind weighting analysis;;1;;;;;
 147:20;EGSE;Check CLD connection;;1;;;;;
 147:20;EGSE;Switch ON CLD via Battery & check voltage (24 Volt);;1;;;;;
 147:20;EGSE;Switch ON the primary and secondary supply switches on the Control Panel;;1;;;;01:00;
@@ -378,8 +378,8 @@ vers.;v4.20;Launch Procedure;;0;MRL;MCC;RdHill;Time per step;
 0:00;EGSE;Open OxV2;;2;;;;;
 0:00;EGSE;Confirm OxInPT2 & OxOutPT 0 Bar;;2;;;;;
 0:00;EGSE;Close OxV2;;2;;;;;
-0:00;EGSE;Close OxDV ;;2;;;;;
-0:00;MRL;Go to MRL, confirm OxInPG1 & OxInPG2 0 Bar, else RETURN to Block House, THEN...
+0:00;EGSE;Close OxDV;;2;;;;;
+0:00;MRL;Go to MRL, confirm OxInPG1 & OxInPG2 0 Bar, else RETURN to Block House, THEN...;;2;;;;;
 0:00;MRL;Close He Bottle 2, THEN...;;2;;;;;
 0:00;MRL;Write down remaining Pressure of He Bottle 2, THEN...;;2;;;;;
 0:00;MRL;Return to Block House;;2;;;;;
@@ -417,4 +417,4 @@ vers.;v4.20;Launch Procedure;;0;MRL;MCC;RdHill;Time per step;
 0:00;MCC;Stop ComTerm and save logfile to external HDD, THEN...;;1;;;;;
 0:00;MCC;Restart ComTerm VI;;1;;;;;
 0:00;AVC;Save video & audio data on external HDD;;1;;;;;
-0:00;MCC;END OF PROCEDURE;;1;;;;;
+0:00;MCC;END OF PROCEDURE;End;1;;;;;
