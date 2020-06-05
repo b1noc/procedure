@@ -1,4 +1,4 @@
-vers.;v4.22;Abort Procedure;;3;;;;;
+vers.;v4.23;Abort Procedure;;3;;;;;
 0:00;MCC;BEGIN SEQUENCE: Defueling Rocket;Defueling;3;;;;;
 0:00;MCC;Inform OPS of Launch Abort;;3;;;;;
 0:00;EGSE;Confirm all valve switches are in OFF position (Except OxDV & HPDV);;3;;;;;
