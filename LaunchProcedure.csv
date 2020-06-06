@@ -1,4 +1,4 @@
-vers.;v4.26;Launch Procedure;;0;MRL;MCC;RdHill;Time per step
+vers.;v4.27;Launch Procedure;;0;MRL;MCC;RdHill;Time per step
 147:20;MCC;BEGIN SEQUENCE: Power on EGSE;Power on EGSE;1;;;;
 147:20;WIND;Start wind weighting analysis;;1;;;;
 147:20;EGSE;Check CLD connection;;1;;;;
@@ -373,7 +373,8 @@ vers.;v4.26;Launch Procedure;;0;MRL;MCC;RdHill;Time per step
 0:00;MCC;BEGIN SEQUENCE: PASSIVATION (PHASE YELLOW);Passivation;2;;;;
 68:40;MCC;Announce BEGIN of Radio Silence;;2;;;;
 0:00;MCC;Turn audio volume up;;2;;;;
-0:00;MRL;Go to MRL, Close N2O Bottle 1 & N2O Bottle 2, THEN...;;2;;;;
+0:00;MRL;Go to MRL, THEN...;;2;;;;
+0:00;MRL;Close N2O Bottle 1 & N2O Bottle 2, THEN...;;2;;;;
 0:00;MRL;RETURN to Block House;;2;;;;
 0:00;EGSE;Open OxDV;;2;;;;
 0:00;EGSE;Open OxV1;;2;;;;
