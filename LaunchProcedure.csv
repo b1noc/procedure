@@ -1,4 +1,4 @@
-vers.;v4.23;Launch Procedure;;0;MRL;MCC;RdHill;Time per step
+vers.;v4.25;Launch Procedure;;0;MRL;MCC;RdHill;Time per step
 147:20;MCC;BEGIN SEQUENCE: Power on EGSE;Power on EGSE;1;;;;
 147:20;WIND;Start wind weighting analysis;;1;;;;
 147:20;EGSE;Check CLD connection;;1;;;;
@@ -117,7 +117,6 @@ vers.;v4.23;Launch Procedure;;0;MRL;MCC;RdHill;Time per step
 110:00;MCC;BEGIN SEQUENCE: Ground segment pressure test (PHASE YELLOW) ;GSE Pressure Test;2;LuF, AlS, LeD: 1x Helm, 3x Ear protectors;ChB, FiH, JuL, LiA, MiS;;
 130:50;EGSE/ MRL;Check Bottle Temperatures @ OxT1, OxT2, HPT2. If above 30C aknowledge high temperature. If above 35C enter HOLD;;2;;;;00:10
 130:40;EGSE/ MRL;Check Water Temperatures @ OxWT1, OxWT2, HPWT2;;2;;;;00:10
-110:00;MRL;Confirm that all hatches are closed;;2;;;;01:00
 109:00;MRL;Confirm He bottle 1 connector is attached;;2;;;;
 109:00;MRL;Confirm He bottle 2 connector is attached;;2;;;;
 109:00;MRL;Confirm N2O bottle 1 connector is attached;;2;;;;
@@ -200,24 +199,28 @@ vers.;v4.23;Launch Procedure;;0;MRL;MCC;RdHill;Time per step
 130:50;EGSE/ MRL;Check Bottle Temperatures @ OxT1, OxT2, HPT2. If above 30C aknowledge high temperature. If above 35C enter HOLD;;1;;;;00:10
 130:40;EGSE/ MRL;Check Water Temperatures @ OxWT1, OxWT2, HPWT2;;1;;;;00:10
 99:20;MRL;BEGIN SEQUENCE: Prime Rocket;Prime Rocket;2;;;;
-99:20;EGSE;Turn ON EPS_BAT;;2;;;;01:00
+99:40;OBDH;Check RDV;;2;;;;00:10
+99:30;OBDH;Check RNCEV;;2;;;;00:10
+99:20;OBDH;Check RMOxOV;;2;;;;00:10
+99:10;OBDH;Check RMOxSV;;2;;;;00:10
+99:00;OBDH;Disable RNCEV;;2;;;;00:10
+99:20;EGSE;Turn ON EPS_BAT (Rocket OFF);;2;;;;01:00
 99:20;MRL;Confirm working personel is grounded;;2;;;;01:00
-99:20;MRL;Confirm all spring retracted hatches are moving freely;;2;;;;
+110:00;MRL;Confirm that HP maintenance cover is closed & secured;;2;;;;01:00
+110:00;MRL;Confirm that MainOX maintenance cover is closed & secured;;2;;;;01:00
+99:20;MRL;Confirm spring retracted cover at He coupling is moving freely;;2;;;;
+99:20;MRL;Confirm spring retracted cover at N2O coupling is moving freely;;2;;;;
 98:50;MRL;Turn on GoPro Camera at end of Launch Rail;;2;;;;00:20
 99:20;MRL;Connect Ignition Umbilical;;2;;;;00:30
 98:30;MRL;Insert all EPS Bridges;;2;;;;03:00
-95:30;MRL;Confirm Bridge Hatch is Secured;;2;;;;00:20
+95:30;MRL;Close bridge maintenance cover;;2;;;;00:20
+95:30;MRL;Confirm bridge maintenance cover is closed & secured;;2;;;;00:20
 95:10;EGSE @MRL;return to MCC;;2;;;;
 95:10;OPS;Elevate MRL to 90 degrees;;2;;;;05:00
 89:40;EGSE;Zero OxTank Mass;;2;;;;01:00
 88:40;MCC;BEGIN SEQUENCE: Fueling Preparations (PHASE YELLOW);Fueling Preparations;2;;;;
 130:50;EGSE/ MRL;Check Bottle Temperatures @ OxT1, OxT2, HPT2. If above 30C aknowledge high temperature. If above 35C enter HOLD;;2;;;;00:10
 130:40;EGSE/ MRL;Check Water Temperatures @ OxWT1, OxWT2, HPWT2;;2;;;;00:10
-127:40;OBDH;!!!Check RDV;;2;;;;00:10
-127:30;OBDH;!!!Check RNCEV;;2;;;;00:10
-127:20;OBDH;!!!Check RMOxOV;;2;;;;00:10
-127:10;OBDH;!!!Check RMOxSV;;2;;;;00:10
-127:00;OBDH;!!!Disable RNCEV;;2;;;;00:10
 88:40;MRL;Put on safety equipment;;2;;;;00:30
 10:10;MRL;Confirm HPNV1 is Open;;2;;;;
 10:10;MRL;Confirm HPNV2 is Closed;;2;;;;
