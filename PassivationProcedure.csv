@@ -1,4 +1,4 @@
-vers.;v4.23;Passivation out of sequence Procedure;;2;;;;;
+vers.;v4.23;Passivation out of sequence Procedure;;2;mrl;mcc;rdh;time;t
 0:00;MCC;BEGIN SEQUENCE: Prepare Passivation Sequence;Prepare Passivation;2;;;;;
 0:00;MCC/MRL;Recall and make sure BOTH N2O Bottles & He Bottle 2 are still closed! Else continue with Abort Procedure;;2;;;;;
 0:00;MCC;Inform OPS of Passivation out of sequence;;2;;;;;
@@ -24,7 +24,7 @@ vers.;v4.23;Passivation out of sequence Procedure;;2;;;;;
 0:00;EGSE;Confirm HPLPT & HPPT2 0 bar;;2;;;;;
 0:00;EGSE;Close HPV2;;2;;;;;
 0:00;EGSE;Close HPDV;;2;;;;;
-0:00;OBDH;Check RHPPT & ROxTPT 1 Bar (If more: continue with Passivation of Rocket, else continue at Finish Passivation);;2;;;;
+0:00;OBDH;Check RHPPT & ROxTPT 1 Bar (If more: continue with Passivation of Rocket, else continue at Finish Passivation);;2;;;;;
 0:00;MCC;BEGIN:Passivation of Rocket;Passivation of Rocket;2;;;;;
 0:00;OBDH;Open & Close stepwise RDV until RHPPT & ROxTPT 1 Bar;;2;;;;;
 0:00;OBDH;Confirm RHPPT & ROxTPT 1 Bar;;2;;;;;
@@ -47,4 +47,4 @@ vers.;v4.23;Passivation out of sequence Procedure;;2;;;;;
 0:00;MRL;Close MBV;;2;;;;;
 0:00;MRL;Safety is ensured;;2;;;;;
 0:00;MCC;Confirm to OPS that Safety is ensured;;1;;;;;
-0:00;MCC;END OF PROCEDURE;;1;;;;;
+0:00;MCC;END OF PROCEDURE;End;1;;;;;
