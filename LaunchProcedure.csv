@@ -1,4 +1,4 @@
-vers.;v4.27;Launch Procedure;;0;MRL;MCC;RdHill;Time per step
+vers.;v4.28;Launch Procedure;;0;MRL;MCC;RdHill;Time per step
 147:20;MCC;BEGIN SEQUENCE: Power on EGSE;Power on EGSE;1;;;;
 147:20;WIND;Start wind weighting analysis;;1;;;;
 147:20;EGSE;Check CLD connection;;1;;;;
@@ -273,6 +273,8 @@ vers.;v4.27;Launch Procedure;;0;MRL;MCC;RdHill;Time per step
 125:50;OBDH;Test Connection to STX3;;3;;;;00:20
 125:30;OBDH;Confirm that STX3 Packages are received by email;;3;;;;00:30
 125:30;AVC;Turn on main TMTC screen;;3;;;;00:30
+125:30;PYL;Confirm CanSat is running;;3;;;;00:20
+125:30;PYL;Confirm BlackBox2 is running;;3;;;;
 125:30;MCC;Request Permission to begin fueling from OPS;;3;;;;03:00
 68:40;OBDH;Acknowledge start of Fueling;;3;;;;01:00
 67:40;EGSE;Open & Close HPV1 STEPWISE to 50 Bar @ ROxTPT (stop every 10 bar & check ROxTBT & ROxTTT (approx. ambiente temp);;3;;;;
