@@ -1,4 +1,4 @@
-vers.;v4.37;Launch Procedure;;0;MRL;MCC;RdHill;Time per step
+vers.;v4.38;Launch Procedure;;0;MRL;MCC;RdHill;Time per step
 147:20;MCC;BEGIN SEQUENCE: Power on Electronic_Ground_Support_Equipment;Power on EGSE;1;;;;
 147:20;WIND;Start wind weighting analysis;;1;;;;
 147:20;EGSE;Check CLD connection;;1;;;;
