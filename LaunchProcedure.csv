@@ -1,4 +1,4 @@
-vers.;v4.36;Launch Procedure;;0;MRL;MCC;RdHill;Time per step
+vers.;v4.37;Launch Procedure;;0;MRL;MCC;RdHill;Time per step
 147:20;MCC;BEGIN SEQUENCE: Power on Electronic_Ground_Support_Equipment;Power on EGSE;1;;;;
 147:20;WIND;Start wind weighting analysis;;1;;;;
 147:20;EGSE;Check CLD connection;;1;;;;
@@ -37,7 +37,6 @@ vers.;v4.36;Launch Procedure;;0;MRL;MCC;RdHill;Time per step
 0:00;EGSE;Turn OFF EPS_BAT;;1;;;;
 0:00;EGSE @MRL;Confirm MAIN_BUS LED is ON;;1;;;;
 0:00;EGSE @MRL;Confirm 1 beep at Telemega;;1;;;;
-140:50;OBDH;Start OBC1;;1;;;;01:00
 139:50;MRL;Confirm 3 beeps at OBC1;;1;;;;
 140:50;OBDH;Clear SD-Card-using FileZilla FTP;;1;;;;01:00
 139:50;OBDH;Connect to sbRio using remote Access utility;;1;;;;
@@ -64,14 +63,14 @@ vers.;v4.36;Launch Procedure;;0;MRL;MCC;RdHill;Time per step
 135:00;EGSE/ MRL;Switch HPDV to closed & check if magnetic valve LED is on;;1;;;;00:10
 134:50;EGSE/ MRL;Check warning lamp on HPSM;;1;;;;00:10
 134:40;MRL;Remove loose equipment;;1;;;;03:00
-131:40;EGSE/ MRL;Turn ON & OFF Rocket Heater & confirm it's heating;;1;;;;00:10
+131:40;EGSE/ MRL;Turn ON & OFF Rocket Heater (heizi) & confirm it's heating;;1;;;;00:10
 131:30;EGSE/ MRL;Turn ON & OFF N2O_Heater 1 & confirm it's heating;;1;;;;00:10
 131:20;EGSE/ MRL;Turn ON & OFF N2O_Heater 2 & confirm it's heating;;1;;;;00:10
 131:10;EGSE/ MRL;Turn ON & OFF He_Heater & confirm it's heating;;1;;;;00:10
-131:00;OBDH;Verify Rocket Heater @ RDVT & RDVET;;1;;;;00:10
+131:00;OBDH;Verify Rocket Heater (heizi) @ RDVT & RDVET;;1;;;;00:10
 130:50;EGSE/ MRL;Check Bottle Temperatures @ OxT1, OxT2, HPT2. If above 30C aknowledge high temperature. If above 35C enter HOLD;;1;;;;00:10
 130:40;EGSE/ MRL;Check Water Temperatures @ OxWT1, OxWT2, HPWT2;;1;;;;00:10
-130:30;EGSE;Deactivate Rocket Heater;;1;;;;00:10
+130:30;EGSE;Deactivate Rocket Heater (heizi);;1;;;;00:10
 130:20;EGSE/ MRL;Check OxV1 (CLD & RT_VI);;1;;;;00:10
 130:10;EGSE/ MRL;Check OxV2 (CLD & RT_VI);;1;;;;00:10
 130:00;EGSE/ MRL;Check MPV3 (CLD & RT_VI);;1;;;;00:10
@@ -81,8 +80,8 @@ vers.;v4.36;Launch Procedure;;0;MRL;MCC;RdHill;Time per step
 129:20;EGSE/ MRL;Check RDV (CLD & RT_VI);;1;;;;00:10
 129:10;EGSE/ MRL;Check RMOxOV (CLD & RT_VI);;1;;;;00:10
 129:00;EGSE/ MRL;Check RMOxSV (CLD & RT_VI);;1;;;;00:10
-128:50;OBDH;Activate Rocket Heater;;1;;;;00:10
-128:40;OBDH;Verify Rocket Heater @ RDVT & RDVET;;1;;;;01:00
+128:50;OBDH;Activate Rocket Heater (heizi);;1;;;;00:10
+128:40;OBDH;Verify Rocket Heater (heizi) @ RDVT & RDVET;;1;;;;01:00
 127:40;OBDH/ MRL;Check RDV;;1;;;;00:10
 127:30;OBDH/ MRL;Check RNCEV;;1;;;;00:10
 127:20;OBDH/ MRL;Check RMOxOV;;1;;;;00:10
@@ -254,6 +253,7 @@ vers.;v4.36;Launch Procedure;;0;MRL;MCC;RdHill;Time per step
 95:00;MRL;Confirm that HP maintenance cover is closed & secured;;2;;;;01:00
 95:30;MRL;Confirm bridge maintenance cover is closed & secured;;2;;;;00:20
 95:00;MRL;Confirm that MainOX maintenance cover is closed & secured;;2;;;;01:00
+95:10;EGSE @MRL;Turn all Cameras on;;2;;;;
 95:10;EGSE @MRL;Leave MRL & return to MCC;;2;;;;
 99:20;MRL;Connect Ignition Umbilical;;2;;;;00:30
 95:10;OPS;Elevate MRL to 90 degrees;;2;;;;05:00
@@ -410,12 +410,13 @@ vers.;v4.36;Launch Procedure;;0;MRL;MCC;RdHill;Time per step
 0:10;EGSE;T-10 Turn on Ignition Secure;;3;;;;00:07
 0:03;EGSE;T-3: Ignition;;3;;;;00:03
 0:00;OBDH;T+0: Verify RMOxOV Open (Launched);;3;;;;00:00
-0:00;EGSE;T+1: Turn OFF Ignition;;3;;;;
-0:00;EGSE;T+5: Turn OFF Ignition Secure;;3;;;;
-0:00;OBDH;T+20: Verify RMOxOV Closed and RMOxSV Open (Cruise);;3;;;;
-0:00;OBDH;T+50: Verify RNCEV Open (Drogue);;3;;;;
-0:00;OBDH;T+310: Verify Main Chute Deployed and RDV Open (Main);;3;;;;
-0:00;OBDH;T+600: Verify (Landed);;3;;;;
+0:00;EGSE;T+0:1: Turn OFF Ignition;;3;;;;
+0:00;EGSE;T+0:5: Turn OFF Ignition Secure;;3;;;;
+0:00;EGSE;T+0:15: Turn ON EPS_BAT (Rocket OFF);;3;;;;01:00
+0:00;OBDH;T+0:20: Verify RMOxOV Closed and RMOxSV Open (Cruise);;3;;;;
+0:00;OBDH;T+0:50: Verify RNCEV Open (Drogue);;3;;;;
+0:00;OBDH;T+05:10: Verify Main Chute Deployed and RDV Open (Main);;3;;;;
+0:00;OBDH;T+10:00: Verify (Landed);;3;;;;
 0:00;MCC;BEGIN SEQUENCE: PASSIVATION (PHASE YELLOW);Passivation;2;;;;
 68:40;MCC;Announce BEGIN of Radio Silence;;2;;;;
 0:00;MCC;Turn audio volume up;;2;;;;
