@@ -1,4 +1,4 @@
-vers.;v5.4;Abort Procedure;;3;mrl;mcc;rdh;time
+vers.;v5.5;Abort Procedure;;3;mrl;mcc;rdh;time
 0:00;MCC;BEGIN SEQUENCE: Prepare Launch Abort;Prepare Launch Abort;3;;;;
 0:00;EGSE;Confirm Ignition is OFF;;3;;;;
 0:00;EGSE;Confirm Ignition Secure is OFF;;3;;;;
