@@ -1,4 +1,4 @@
-vers.;v5.5;Launch Procedure;;0;Remark;MCC;MRL;RdHill;Time per step;
+vers.;v5.6;Launch Procedure;;0;Remark;MCC;MRL;RdHill;Time per step;
 147:00;MCC;BEGIN SEQUENCE: Power on Electronic_Ground_Support_Equipment;Power on EGSE;1;Begin Pre Countdown Preparations;;;;;
 147:00;WIND;Start wind weighting analysis;;1;;;;;;
 147:00;EGSE;Check CLD connection;;1;;;;;;
@@ -51,9 +51,9 @@ vers.;v5.5;Launch Procedure;;0;Remark;MCC;MRL;RdHill;Time per step;
 122:50;MRL;Confirm Soundsignal from Ignition test receptical;;1;;;;;;
 122:50;EGSE @MRL;Go to Blockhouse;;1;;;;;;
 108:50;MCC;BEGIN OF COUNTDOWN;BEGIN OF COUNTDOWN;2;;;;;;
-108:50;MCC;Announce BEGIN OF RADIO SILENCE;BEGIN OF RADIO SILENCE;2;;;;;;
+108:50;MCC;Announce BEGIN OF RADIO SILENCE;;2;Begin of RADIO SILENCE;;;;;
 108:50;MCC;BEGIN SEQUENCE: On Board System Test;On Board System Test;2;;;;;;
-140:20;MCC;Confirm Radio Silence is raised and Pad is clear;1;;;;;;;
+140:20;MCC;Confirm Radio Silence is raised and Pad is clear;;1;;;;;;;
 140:20;EGSE;Turn OFF EPS_BAT (Rocket ON);;1;Power Up Rocket;;;;;
 140:20;MCC;Confirm 1 beep at Telemega;;1;;;;;;
 140:20;MCC;Confirm 3 beeps at OBC1;;1;;;;;;

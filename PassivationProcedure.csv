@@ -1,4 +1,4 @@
-vers.;v5.5;Passivation out of sequence Procedure;;2;mrl;mcc;rdh;time
+vers.;v5.6;Passivation out of sequence Procedure;;2;mrl;mcc;rdh;time
 0:00;MCC;BEGIN SEQUENCE: Prepare Passivation;Prepare Passivation;2;;;;
 0:00;MCC/MRL;Recall and make sure BOTH N2O Bottles & He Bottle 2 are still closed! Else continue with Abort Procedure;;2;;;;
 0:00;MCC;Inform OPS of Passivation out of sequence;;2;;;;
