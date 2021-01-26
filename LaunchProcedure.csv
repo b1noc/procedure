@@ -1,485 +1,485 @@
-vers.;v5.2;Launch Procedure;;0;MRL;MCC;RdHill;Time per step
-147:00;MCC;BEGIN SEQUENCE: Power on Electronic_Ground_Support_Equipment;Power on EGSE;1;;;;
-147:00;WIND;Start wind weighting analysis;;1;;;;
-147:00;EGSE;Check CLD connection;;1;;;;
-147:00;EGSE;Switch ON CLD via Battery & check voltage (24 Volt);;1;;;;
-146:00;EGSE;Switch ON the primary and secondary supply switches on the Control Panel;;1;;;;01:00
-146:00;EGSE @MRL;Switch ON Sup_24V_20A & check voltage (ca. 27,2 Volt);;1;;;;
-146:00;EGSE @MRL;Switch ON Sup_24V_10A & check voltage (ca. 27,2 Volt);;1;;;;
-146:00;EGSE @MRL;Switch ON Sup_12V_10A & check voltage (ca. 13,8 Volt);;1;;;;
-146:00;EGSE @MRL;Switch ON Bat_24V_20A & check voltage (ca. 27,9 Volt);;1;;;;
-146:00;EGSE @MRL;Switch ON Bat_24V_10A & check voltage (ca. 27,9 Volt);;1;;;;
-146:00;EGSE @MRL;Switch ON Bat_12V_10A & check voltage (ca. 13,8 Volt);;1;;;;
-146:00;EGSE @MRL;Switch ON Sup_24V_40A;;1;;;;
-143:00;EGSE @MRL;Switch ON Sup_5V_10A;;1;;;;03:00
-122:50;EGSE @MRL;Connect Ignition test receptical;;1;;;;
-143:00;EGSE;Connect to cRio;;1;;;;
-143:00;EGSE;Start RT_VI;;1;;;;
-142:50;EGSE;Confirm storage capacity of cRio is greater than 300MB;;1;;;;00:10
-142:50;EGSE;Open PID-VI and confirm it is running;;1;;;;
-140:50;EGSE;Rename PID-Logfile;;1;;;;02:00
-140:20;MCC;BEGIN SEQUENCE: Connect Data Umbilical;Connect Data Umbilical;1;;;;00:30
-140:20;MRL;Confirm working personel is grounded;;1;;;;
-140:20;EGSE @MRL;Confirm ALL 8 bridges on the right side are inserted;;1;;;;
-140:20;EGSE @MRL;Confirm ALL 8 bridges on the left side are removed;;1;;;;
-140:20;EGSE @MRL;Connect Data Umbilical;;1;;;;
-140:20;EGSE @MRL;Remove EXT_24V GROUND Bridge (1R);;1;;;;
-140:20;EGSE @MRL;Remove MAIN_BUS GROUND Bridge (2R);;1;;;;
-140:20;EGSE @MRL;Remove OBC2_BAT GROUND Bridge (4R);;1;;;;
-140:20;EGSE @MRL;Remove PAYLOAD1 GROUND Bridge (5R);;1;;;;
-140:20;EGSE @MRL;Remove RECOVERY_BAT GROUND Bridge (7R);;1;;;;
-140:20;EGSE;Turn ON EPS_BAT (Rocket OFF);;1;Enable remote Power Off signal to Rocket;;;;
-140:20;EGSE;Turn ON EPS_EXT_24V;;1;;;;
-140:20;EGSE @MRL;Insert EXT_24V Bridge (1L);;1;;;;
-140:20;EGSE @MRL;Confirm EXT_24V LED is ON;;1;;;;
-140:20;EGSE @MRL;Insert MAIN_BUS Bridge (2L);;1;;;;
-140:20;EGSE @MRL;Confirm MAIN_BUS LED is OFF (if ON pull MAIN_BUS Bridge (2L) & Insert all grounding Bridges on the right side;;1;;;;
-105:50;EGSE @MRL;Insert MAIN_BAT Bridge (3L);;1;;;;
-105:50;EGSE @MRL;Confirm MAIN_BAT LED is ON;;1;;;;
-105:50;EGSE @MRL;Insert OBC2_BAT Bridge (4L);;1;;;;
-105:50;EGSE @MRL;Confirm OBC2_BAT LED is ON;;1;;;;
-105:50;EGSE @MRL;Insert RECOVERY_BAT Bridge (7L);;1;;;;
-105:50;EGSE @MRL;Confirm RECOVERY_BAT LED is ON;;1;;;;
-105:50;EGSE @MRL;Insert PAYLOAD1 Bridge (5L);;1;;;;
-105:50;EGSE @MRL;Confirm PAYLOAD1 LED is OFF;;1;;;;
-105:50;EGSE @MRL;Insert PAYLOAD2 Bridge (6L);;1;;;;
-105:50;EGSE @MRL;Confirm PAYLOAD2 LED is ON;;1;;;;
-105:50;EGSE @MRL;Confirm MAIN_BUS LED is OFF;;1;;;;
-105:50;EGSE @MRL;Remove EPS RADIO SILENCE Bridge (3R);;1;Disable Hardware Power OFF from Rocket;;;;
-104:50;EGSE @MRL;Remove BLACKBOX2 RADIO SILENCE Bridge (3R);;1;Disable Hardware Power OFF from BlackBox2;;;
-122:50;EGSE @MRL;Plug in Bridges B1 and B2 into EGSE;;1;Set Ignition Bridges (Ignition Umbilical still disconnected);;;;
-122:50;MRL;Confirm Soundsignal from Ignition test receptical;;1;;;;
-122:50;EGSE @MRL;Go to Blockhouse;;1;;;;
-108:50;MCC;BEGIN OF COUNTDOWN;BEGIN OF COUNTDOWN;2;;;;
-108:50;MCC;Announce BEGIN OF RADIO SILENCE;BEGIN OF RADIO SILENCE;2;;;;
-108:50;MCC;BEGIN SEQUENCE: On Board System Test;On Board System Test;2;;;;
-140:20;MCC;Confirm Radio Silence is raised and Pad is clear;1;;;;
-140:20;EGSE;Turn OFF EPS_BAT (Rocket ON);;1;Power Up Rocket;;;;
-140:20;MCC;Confirm 1 beep at Telemega;;1;;;;
-140:20;MCC;Confirm 3 beeps at OBC1;;1;;;;
-139:20;OBDH;Clear SD-Card-using FileZilla FTP;;1;;;;01:00
-139:20;OBDH;Connect to sbRio using remote Access utility;;1;;;;
-139:20;OBDH;Open RT_Sub_HMI;;1;;;;
-139:20;OBDH;Confirm Main Chute button is disabled;;1;;;;
-139:10;OBDH;Check EPS hardware Voltages;;1;;;;00:10
-139:00;EGSE;Check EGSE Currents;;1;;;;00:10
-125:30;OBDH;Check RHPPT shows atmosphere;;1;;;;
-125:30;OBDH;Check ROxTPT shows atmosphere;;1;;;;
-125:30;OBDH;Check RIHPT shows atmosphere;;1;;;;
-125:30;OBDH;Check RCCPT shows atmosphere;;1;;;;
-125:30;OBDH;Check RBaro1 shows atmosphere;;1;;;;
-125:30;OBDH;Check RBaro2 shows atmosphere;;1;;;;
-125:30;OBDH;Turn ON Camera and Confirm it's running;;1;;;;00:20
-125:30;OBDH;Turn OFF Camera;;1;;;;00:20
-104:10;PYL;Confirm BlackBox2 is running;;1;;;;
-104:10;EGSE;Turn OFF EPS_EXT_24V;;1;Switch to internal Power;;;;
-103:50;PYL;Confirm CanSat is running;;1;;;;00:20
-103:50;PYL;Confirm BlackBox2 is running;;1;;;;
-103:50;EGSE;Turn ON EPS_EXT_24V;;1;Switch to external Power;;;;
-122:50;MCC;BEGIN SEQUENCE: Ignition signal Test;Ignition signal Test;1;;;;01:00
-122:50;EGSE;Turn on Ignition Secure Switch;;1;;;;
-122:50;EGSE/ OBDH;Turn on Ignition Switch for 2 Second & Confirm ignition signal received at sbRio & cRio;;1;;;;
-122:50;EGSE;Confirm that Ignition Switch is switched OFF and secured;;1;;;;
-122:50;EGSE;Turn off Ignition Secure Switch;;1;;;;
-122:50;MCC;BEGIN SEQUENCE: Prepare Rocket for Valve test; Prepare Rocket Valve Test;1;;;;01:00
-103:50;OBDH;Disconnect from sbRio;;1;;;;
-102:50;EGSE;Turn ON EPS_BAT (Rocket OFF);;1;Power Off Rocket;;;;01:00
-122:50;MRL;Move to MRL;;1;Team MRL goes to MRL;;;;
-122:50;EGSE @MRL;Remove Bridges B1 and B2;;1;Remove Ignition Bridges;;;;
-105:50;EGSE @MRL;Confirm MAIN_BUS LED is OFF;;1;;;;
-104:50;EGSE @MRL;Insert BLACKBOX2 RADIO SILENCE Bridge (3R);;1;;;;
-105:50;EGSE @MRL;Insert EPS RADIO SILENCE Bridge (3R);;1;;;;
-105:50;EGSE @MRL;Remove PAYLOAD2 Bridge (6L);;1;;;;
-105:50;EGSE @MRL;Confirm PAYLOAD2 LED is OFF;;1;;;;
-105:50;EGSE @MRL;Remove PAYLOAD1 Bridge (5L);;1;;;;
-105:50;EGSE @MRL;Confirm PAYLOAD1 LED is OFF;;1;;;;
-105:50;EGSE @MRL;Remove RECOVERY_BAT Bridge (7L);;1;;;;
-105:50;EGSE @MRL;Confirm RECOVERY_BAT LED is OFF;;1;;;;
-105:50;EGSE @MRL;Remove OBC2_BAT Bridge (4L);;1;;;;
-105:50;EGSE @MRL;Confirm OBC2_BAT LED is OFF;;1;;;;
-105:50;EGSE @MRL;Remove MAIN_BAT Bridge (3L);;1;;;;
-105:50;EGSE @MRL;Confirm MAIN_BAT LED is OFF;;1;;;;
-122:50;MCC;BEGIN SEQUENCE: Rocket Valve test; Rocket Valve Test;1;;;;01:00
-140:20;EGSE;Turn OFF EPS_BAT (Rocket ON);;1;Power ON Rocket;;;
-139:20;OBDH;Connect to sbRio using remote Access utility;;1;;;;
-139:20;OBDH;Open RT_Sub_HMI;;1;;;;
-139:20;OBDH;Confirm Main Chute button is disabled;;1;;;;
-139:10;OBDH;Check EPS hardware Voltages;;1;;;;00:10
-139:00;EGSE;Check EGSE Currents;;1;;;;00:10
-128:20;EGSE/ MRL;Check RDV (CLD & RT_VI);;1;;;;00:10
-128:10;EGSE/ MRL;Check RMOxOV (CLD & RT_VI);;1;;;;00:10
-128:00;EGSE/ MRL;Check RMOxSV (CLD & RT_VI);;1;;;;00:10
-127:50;OBDH;Activate Rocket Heater (aka heizi);;1;;;;00:10
-126:50;OBDH;Verify Rocket Heater (aka heizi) @ RDVT & RDVET;;1;;;;01:00
-128:40;OBDH/ MRL;Turn OFF Rocket Heater;;1;;;;01:00
-126:40;OBDH/ MRL;Check RDV;;1;;;;00:10
-126:30;OBDH/ MRL;Check RNCEV;;1;;;;00:10
-126:20;OBDH/ MRL;Check RMOxOV;;1;;;;00:10
-126:10;OBDH/ MRL;Check RMOxSV;;1;;;;00:10
-126:00;OBDH;Disable RNCEV;;1;;;;00:10
-103:50;OBDH;Disconnect from sbRio;;1;;;;
-102:50;EGSE;Turn ON EPS_BAT (Rocket OFF);;1;;;;01:00
-122:50;MCC;BEGIN SEQUENCE: Turn OFF Rocket;Turn Off Rocket;1;;;;01:00
-140:20;EGSE @MRL;Remove MAIN_BUS Bridge (2L);;1;;;;
-140:20;EGSE @MRL;Confirm MAIN_BUS LED is OFF;;1;;;;
-140:20;EGSE @MRL;Remove EXT_24V Bridge (1L);;1;;;;
-140:20;EGSE @MRL;Confirm EXT_24V LED is OFF;;1;;;;
-119:50;MRL;Remove Ignition test receptical;;1;;;;03:00
-139:00;MCC;BEGIN SEQUENCE: Connect Fueling arm @HPSM;Connect Fueling Arm;1;;;;
-138:00;MRL;Confirm working personel is grounded;;1;;;;01:00
-138:00;MRL;Confirm PPG 0 bar;;1;;;;
-138:00;MRL;Remove Pneumatic Line from Fueling arm;;1;;;;
-138:00;MRL;Move Fueling arm to rocket;;1;;;;
-138:00;MRL;Couple Helium coupling;;1;;;;
-138:00;MRL;Couple N2O coupling;;1;;;;
-135:00;MRL;Reattach Pneumatic Line to Fueling arm @HPSM;;1;;;;03:00
-135:00;MCC;BEGIN SEQUENCE: EGSE sensor and actuator test;EGSE sensor & actuator test;1;;;;
-134:50;MCC;Confirm that video recording is enabled @ MCC;;1;;;;00:10
-134:50;MRL;Confirm that Ignition Umbilical is disconnected;;1;;;;
-134:40;EGSE;Start PID data recording;;1;;;;00:10
-134:30;MRL;Close HPNV1;;1;;;;00:10
-134:20;MRL;Close HPNV2;;1;;;;00:10
-134:10;EGSE/ MRL;Switch OxDV to closed & check if magnetic valve LED is on;;1;;;;00:10
-134:00;EGSE/ MRL;Switch HPDV to closed & check if magnetic valve LED is on;;1;;;;00:10
-133:50;EGSE/ MRL;Check warning lamp on HPSM;;1;;;;00:10
-130:50;MRL;Remove loose equipment;;1;;;;03:00
-130:40;EGSE/ MRL;Turn ON & OFF Rocket Heater (heizi) & confirm it's heating;;1;;;;00:10
-130:30;EGSE/ MRL;Turn ON & OFF N2O_Heater 1 & confirm it's heating;;1;;;;00:10
-130:20;EGSE/ MRL;Turn ON & OFF N2O_Heater 2 & confirm it's heating;;1;;;;00:10
-130:10;EGSE/ MRL;Turn ON & OFF He_Heater & confirm it's heating;;1;;;;00:10
-129:50;EGSE/ MRL;Check Bottle Temperatures @ OxT1, OxT2, HPT2. If above 30C aknowledge high temperature. If above 35C enter HOLD;;1;;;;00:10
-129:40;EGSE/ MRL;Check Water Temperatures @ OxWT1, OxWT2, HPWT2;;1;;;;00:10
-129:30;EGSE;Deactivate Rocket Heater (heizi);;1;;;;00:10
-129:20;EGSE/ MRL;Check OxV1 (CLD & RT_VI);;1;;;;00:10
-129:10;EGSE/ MRL;Check OxV2 (CLD & RT_VI);;1;;;;00:10
-129:00;EGSE/ MRL;Check MPV3 (CLD & RT_VI);;1;;;;00:10
-128:50;EGSE/ MRL;Check HPV1 (CLD & RT_VI);;1;;;;00:10
-128:40;EGSE/ MRL;Check HPV2 (CLD & RT_VI);;1;;;;00:10
-128:30;EGSE/ MRL;Check MPV1/2 (CLD & RT_VI);;1;;;;00:10
-126:00;MRL;Confirm MBV closed;;1;;;;
-125:50;EGSE;Confirm that all valve switches are in OFF position (Except OxDV & HPDV);;1;;;;00:10
-125:30;EGSE/ MRL;Check loadcell by applying force to it;;1;;;;00:20
-125:10;EGSE;Check HPPT1 shows 0 bar;;1;;;;00:20
-125:10;EGSE;Check HPPT2 shows 0 bar;;1;;;;
-125:10;EGSE;Check HPLPT shows 0 bar;;1;;;;
-125:10;EGSE;Check OxInPT1 shows 0 bar;;1;;;;
-125:10;EGSE;Check OxInPT2 shows 0 bar;;1;;;;
-124:50;EGSE;Check OxOutPT shows 0 bar;;1;;;;00:20
-124:50;EGSE/ MRL;Switch on N2O coupling & check if magnetic valve LED is on;;1;;;;
-124:50;EGSE/ MRL;Switch on He coupling & check if magnetic valve LED is on;;1;;;;
-124:50;EGSE/ MRL;Switch on swivle arm & check if magnetic valve LED is on;;1;;;;
-123:50;EGSE;Switch off swivel arm & He coupling & N2O coupling;;1;;;;01:00
-119:50;MCC;BEGIN SEQUENCE: Ground segment pressure test (PHASE YELLOW) ;GSE Pressure Test;2;LuF, AlS, LeD: 1x Helm, 3x Ear protectors;ChB, FiH, JuL, LiA, MiS;;
-119:40;EGSE/ MRL;Check Bottle Temperatures @ OxT1, OxT2, HPT2. If above 30C aknowledge high temperature. If above 35C enter HOLD;;2;;;;00:10
-119:30;EGSE/ MRL;Check Water Temperatures @ OxWT1, OxWT2, HPWT2;;2;;;;00:10
-119:30;MRL;Confirm He bottle 1 connector is attached;;2;;;;
-119:30;MRL;Confirm He bottle 2 connector is attached;;2;;;;
-119:30;MRL;Confirm N2O bottle 1 connector is attached;;2;;;;
-119:30;MRL;Confirm N2O bottle 2 connector is attached;;2;;;;
-119:30;MRL;Confirm hose between HPSM & N2OSM is connected on both ends;;2;;;;
-119:30;MRL;Confirm hose between HPSM & Flight Segment is connected on both ends;;2;;;;
-119:30;MRL;Confirm hose between N2OSM & Flight Segment is connected on both ends;;2;;;;
-117:30;MRL;Confirm pneumatic hose is connected on both ends;;2;;;;02:00
-117:30;MRL;Put on safety equipment;;2;;;;
-117:30;MRL;Confirm MBV is closed;;2;;;;
-117:30;MRL;Confirm HPNV1 is closed;;2;;;;
-117:30;MRL;Confirm HPNV2 is closed;;2;;;;
-117:30;MRL;Take positions to open He Bottle 1;;2;;;;
-117:30;EGSE;Confirm HPV1 is closed;;2;;;;
-117:30;EGSE;Confirm MPV1/2 is closed;;2;;;;
-116:30;MRL;Open He Bottle 1;;2;;;;01:00
-116:30;EGSE/ MRL;Check & compare pressure HPPT1 with HPPG1 (max 300 bar);;2;;;;
-116:30;MRL;Check Gastech Silver HPPR1 (max 300 to 50 bar);;2;;;;
-116:30;MRL;Check Harris PPR (50 to 8 bar);;2;;;;
-116:30;MRL;Check pneumatic PPG (8 bar);;2;;;;
-115:30;MRL;Step back;;2;;;;01:00
-115:30;EGSE/ MRL;Open & Close HPV1 SHORTLY & Check HPPT1;;2;;;;
-115:30;EGSE;Check HPPT1 300 Bar;;2;;;;
-115:30;EGSE;Confirm HPLPT 0 Bar;;2;;;;
-115:30;EGSE/ MRL;Open & Close HPV2 SHORTLY & Confirm HPPT2 0 bar;;2;;;;
-115:30;EGSE/ MRL;Open & Close HPDV SHORTLY & Confirm HPLPT 0 bar;;2;;;;
-115:30;EGSE/ MRL;Open & Close OxV1 SHORTLY;;2;;;;
-115:30;EGSE/ MRL;Open & Close OxV2 SHORTLY;;2;;;;
-115:30;EGSE/ MRL;Open & Close OxDV SHORTLY;;2;;;;
-115:30;EGSE/ MRL;Open & Close MPV3 SHORTLY;;2;;;;
-115:30;MRL;Open HPNV1 completely;;2;;;;
-115:30;MRL;Step Back;;2;;;;
-115:30;EGSE;"Open & Close HPV1 STEPWISE untile HPLPT equal to HPPT1 and check for leakage @HPLPT (If leakage occurs proceed to passivation Procedure out of sequence)";;2;;;;
+vers.;v5.4;Launch Procedure;;0;Remark;MCC;MRL;RdHill;Time per step;
+147:00;MCC;BEGIN SEQUENCE: Power on Electronic_Ground_Support_Equipment;Power on EGSE;1;;;;;;
+147:00;WIND;Start wind weighting analysis;;1;;;;;;
+147:00;EGSE;Check CLD connection;;1;;;;;;
+147:00;EGSE;Switch ON CLD via Battery & check voltage (24 Volt);;1;;;;;;
+146:00;EGSE;Switch ON the primary and secondary supply switches on the Control Panel;;1;;;;;01:00;
+146:00;EGSE @MRL;Switch ON Sup_24V_20A & check voltage (ca. 27,2 Volt);;1;;;;;;
+146:00;EGSE @MRL;Switch ON Sup_24V_10A & check voltage (ca. 27,2 Volt);;1;;;;;;
+146:00;EGSE @MRL;Switch ON Sup_12V_10A & check voltage (ca. 13,8 Volt);;1;;;;;;
+146:00;EGSE @MRL;Switch ON Bat_24V_20A & check voltage (ca. 27,9 Volt);;1;;;;;;
+146:00;EGSE @MRL;Switch ON Bat_24V_10A & check voltage (ca. 27,9 Volt);;1;;;;;;
+146:00;EGSE @MRL;Switch ON Bat_12V_10A & check voltage (ca. 13,8 Volt);;1;;;;;;
+146:00;EGSE @MRL;Switch ON Sup_24V_40A;;1;;;;;;
+143:00;EGSE @MRL;Switch ON Sup_5V_10A;;1;;;;;03:00;
+122:50;EGSE @MRL;Connect Ignition test receptical;;1;;;;;;
+143:00;EGSE;Connect to cRio;;1;;;;;;
+143:00;EGSE;Start RT_VI;;1;;;;;;
+142:50;EGSE;Confirm storage capacity of cRio is greater than 300MB;;1;;;;;00:10;
+142:50;EGSE;Open PID-VI and confirm it is running;;1;;;;;;
+140:50;EGSE;Rename PID-Logfile;;1;;;;;02:00;
+140:20;MCC;BEGIN SEQUENCE: Connect Data Umbilical;Connect Data Umbilical;1;;;;;00:30;
+140:20;MRL;Confirm working personel is grounded;;1;;;;;;
+140:20;EGSE @MRL;Confirm ALL 8 bridges on the right side are inserted;;1;;;;;;
+140:20;EGSE @MRL;Confirm ALL 8 bridges on the left side are removed;;1;;;;;;
+140:20;EGSE @MRL;Connect Data Umbilical;;1;;;;;;
+140:20;EGSE @MRL;Remove EXT_24V GROUND Bridge (1R);;1;;;;;;
+140:20;EGSE @MRL;Remove MAIN_BUS GROUND Bridge (2R);;1;;;;;;
+140:20;EGSE @MRL;Remove OBC2_BAT GROUND Bridge (4R);;1;;;;;;
+140:20;EGSE @MRL;Remove PAYLOAD1 GROUND Bridge (5R);;1;;;;;;
+140:20;EGSE @MRL;Remove RECOVERY_BAT GROUND Bridge (7R);;1;;;;;;
+140:20;EGSE;Turn ON EPS_BAT (Rocket OFF);;1;Enable remote Power Off signal to Rocket;;;;;
+140:20;EGSE;Turn ON EPS_EXT_24V;;1;;;;;;
+140:20;EGSE @MRL;Insert EXT_24V Bridge (1L);;1;;;;;;
+140:20;EGSE @MRL;Confirm EXT_24V LED is ON;;1;;;;;;
+140:20;EGSE @MRL;Insert MAIN_BUS Bridge (2L);;1;;;;;;
+140:20;EGSE @MRL;Confirm MAIN_BUS LED is OFF (if ON pull MAIN_BUS Bridge (2L) & Insert all grounding Bridges on the right side;;1;;;;;;
+105:50;EGSE @MRL;Insert MAIN_BAT Bridge (3L);;1;;;;;;
+105:50;EGSE @MRL;Confirm MAIN_BAT LED is ON;;1;;;;;;
+105:50;EGSE @MRL;Insert OBC2_BAT Bridge (4L);;1;;;;;;
+105:50;EGSE @MRL;Confirm OBC2_BAT LED is ON;;1;;;;;;
+105:50;EGSE @MRL;Insert RECOVERY_BAT Bridge (7L);;1;;;;;;
+105:50;EGSE @MRL;Confirm RECOVERY_BAT LED is ON;;1;;;;;;
+105:50;EGSE @MRL;Insert PAYLOAD1 Bridge (5L);;1;;;;;;
+105:50;EGSE @MRL;Confirm PAYLOAD1 LED is OFF;;1;;;;;;
+105:50;EGSE @MRL;Insert PAYLOAD2 Bridge (6L);;1;;;;;;
+105:50;EGSE @MRL;Confirm PAYLOAD2 LED is ON;;1;;;;;;
+105:50;EGSE @MRL;Confirm MAIN_BUS LED is OFF;;1;;;;;;
+105:50;EGSE @MRL;Remove EPS RADIO SILENCE Bridge (3R);;1;Disable Hardware Power OFF from Rocket;;;;;
+104:50;EGSE @MRL;Remove BLACKBOX2 RADIO SILENCE Bridge (3R);;1;Disable Hardware Power OFF from BlackBox2;;;;;
+122:50;EGSE @MRL;Plug in Bridges B1 and B2 into EGSE;;1;Set Ignition Bridges (Ignition Umbilical still disconnected);;;;;
+122:50;MRL;Confirm Soundsignal from Ignition test receptical;;1;;;;;;
+122:50;EGSE @MRL;Go to Blockhouse;;1;;;;;;
+108:50;MCC;BEGIN OF COUNTDOWN;BEGIN OF COUNTDOWN;2;;;;;;
+108:50;MCC;Announce BEGIN OF RADIO SILENCE;BEGIN OF RADIO SILENCE;2;;;;;;
+108:50;MCC;BEGIN SEQUENCE: On Board System Test;On Board System Test;2;;;;;;
+140:20;MCC;Confirm Radio Silence is raised and Pad is clear;1;;;;;;;
+140:20;EGSE;Turn OFF EPS_BAT (Rocket ON);;1;Power Up Rocket;;;;;
+140:20;MCC;Confirm 1 beep at Telemega;;1;;;;;;
+140:20;MCC;Confirm 3 beeps at OBC1;;1;;;;;;
+139:20;OBDH;Clear SD-Card-using FileZilla FTP;;1;;;;;01:00;
+139:20;OBDH;Connect to sbRio using remote Access utility;;1;;;;;;
+139:20;OBDH;Open RT_Sub_HMI;;1;;;;;;
+139:20;OBDH;Confirm Main Chute button is disabled;;1;;;;;;
+139:10;OBDH;Check EPS hardware Voltages;;1;;;;;00:10;
+139:00;EGSE;Check EGSE Currents;;1;;;;;00:10;
+125:30;OBDH;Check RHPPT shows atmosphere;;1;;;;;;
+125:30;OBDH;Check ROxTPT shows atmosphere;;1;;;;;;
+125:30;OBDH;Check RIHPT shows atmosphere;;1;;;;;;
+125:30;OBDH;Check RCCPT shows atmosphere;;1;;;;;;
+125:30;OBDH;Check RBaro1 shows atmosphere;;1;;;;;;
+125:30;OBDH;Check RBaro2 shows atmosphere;;1;;;;;;
+125:30;OBDH;Turn ON Camera and Confirm it's running;;1;;;;;00:20;
+125:30;OBDH;Turn OFF Camera;;1;;;;;00:20;
+104:10;PYL;Confirm BlackBox2 is running;;1;;;;;;
+104:10;EGSE;Turn OFF EPS_EXT_24V;;1;Switch to internal Power;;;;;
+103:50;PYL;Confirm CanSat is running;;1;;;;;00:20;
+103:50;PYL;Confirm BlackBox2 is running;;1;;;;;;
+103:50;EGSE;Turn ON EPS_EXT_24V;;1;Switch to external Power;;;;;
+122:50;MCC;BEGIN SEQUENCE: Ignition signal Test;Ignition signal Test;1;;;;;01:00;
+122:50;EGSE;Turn on Ignition Secure Switch;;1;;;;;;
+122:50;EGSE/ OBDH;Turn on Ignition Switch for 2 Second & Confirm ignition signal received at sbRio & cRio;;1;;;;;;
+122:50;EGSE;Confirm that Ignition Switch is switched OFF and secured;;1;;;;;;
+122:50;EGSE;Turn off Ignition Secure Switch;;1;;;;;;
+122:50;MCC;BEGIN SEQUENCE: Prepare Rocket for Valve test; Prepare Rocket Valve Test;1;;;;;01:00;
+103:50;OBDH;Disconnect from sbRio;;1;;;;;;
+102:50;EGSE;Turn ON EPS_BAT (Rocket OFF);;1;Power Off Rocket;;;;;01:00
+122:50;MRL;Move to MRL;;1;Team MRL goes to MRL;;;;;
+122:50;EGSE @MRL;Remove Bridges B1 and B2;;1;Remove Ignition Bridges;;;;;
+105:50;EGSE @MRL;Confirm MAIN_BUS LED is OFF;;1;;;;;;
+104:50;EGSE @MRL;Insert BLACKBOX2 RADIO SILENCE Bridge (3R);;1;;;;;;
+105:50;EGSE @MRL;Insert EPS RADIO SILENCE Bridge (3R);;1;;;;;;
+105:50;EGSE @MRL;Remove PAYLOAD2 Bridge (6L);;1;;;;;;
+105:50;EGSE @MRL;Confirm PAYLOAD2 LED is OFF;;1;;;;;;
+105:50;EGSE @MRL;Remove PAYLOAD1 Bridge (5L);;1;;;;;;
+105:50;EGSE @MRL;Confirm PAYLOAD1 LED is OFF;;1;;;;;;
+105:50;EGSE @MRL;Remove RECOVERY_BAT Bridge (7L);;1;;;;;;
+105:50;EGSE @MRL;Confirm RECOVERY_BAT LED is OFF;;1;;;;;;
+105:50;EGSE @MRL;Remove OBC2_BAT Bridge (4L);;1;;;;;;
+105:50;EGSE @MRL;Confirm OBC2_BAT LED is OFF;;1;;;;;;
+105:50;EGSE @MRL;Remove MAIN_BAT Bridge (3L);;1;;;;;;
+105:50;EGSE @MRL;Confirm MAIN_BAT LED is OFF;;1;;;;;;
+122:50;MCC;BEGIN SEQUENCE: Rocket Valve test; Rocket Valve Test;1;;;;;01:00;
+140:20;EGSE;Turn OFF EPS_BAT (Rocket ON);;1;Power ON Rocket;;;;;
+139:20;OBDH;Connect to sbRio using remote Access utility;;1;;;;;;
+139:20;OBDH;Open RT_Sub_HMI;;1;;;;;;
+139:20;OBDH;Confirm Main Chute button is disabled;;1;;;;;;
+139:10;OBDH;Check EPS hardware Voltages;;1;;;;;00:10;
+139:00;EGSE;Check EGSE Currents;;1;;;;;00:10;
+128:20;EGSE/ MRL;Check RDV (CLD & RT_VI);;1;;;;;00:10;
+128:10;EGSE/ MRL;Check RMOxOV (CLD & RT_VI);;1;;;;;00:10;
+128:00;EGSE/ MRL;Check RMOxSV (CLD & RT_VI);;1;;;;;00:10;
+127:50;OBDH;Activate Rocket Heater (aka heizi);;1;;;;;00:10;
+126:50;OBDH;Verify Rocket Heater (aka heizi) @ RDVT & RDVET;;1;;;;;01:00;
+128:40;OBDH/ MRL;Turn OFF Rocket Heater;;1;;;;;01:00;
+126:40;OBDH/ MRL;Check RDV;;1;;;;;00:10;
+126:30;OBDH/ MRL;Check RNCEV;;1;;;;;00:10;
+126:20;OBDH/ MRL;Check RMOxOV;;1;;;;;00:10;
+126:10;OBDH/ MRL;Check RMOxSV;;1;;;;;00:10;
+126:00;OBDH;Disable RNCEV;;1;;;;;00:10;
+103:50;OBDH;Disconnect from sbRio;;1;;;;;;
+102:50;EGSE;Turn ON EPS_BAT (Rocket OFF);;1;;;;;01:00;
+122:50;MCC;BEGIN SEQUENCE: Turn OFF Rocket;Turn Off Rocket;1;;;;;01:00;
+140:20;EGSE @MRL;Remove MAIN_BUS Bridge (2L);;1;;;;;;
+140:20;EGSE @MRL;Confirm MAIN_BUS LED is OFF;;1;;;;;;
+140:20;EGSE @MRL;Remove EXT_24V Bridge (1L);;1;;;;;;
+140:20;EGSE @MRL;Confirm EXT_24V LED is OFF;;1;;;;;;
+119:50;MRL;Remove Ignition test receptical;;1;;;;;03:00;
+139:00;MCC;BEGIN SEQUENCE: Connect Fueling arm @HPSM;Connect Fueling Arm;1;;;;;;
+138:00;MRL;Confirm working personel is grounded;;1;;;;;01:00;
+138:00;MRL;Confirm PPG 0 bar;;1;;;;;;
+138:00;MRL;Remove Pneumatic Line from Fueling arm;;1;;;;;;
+138:00;MRL;Move Fueling arm to rocket;;1;;;;;;
+138:00;MRL;Couple Helium coupling;;1;;;;;;
+138:00;MRL;Couple N2O coupling;;1;;;;;;
+135:00;MRL;Reattach Pneumatic Line to Fueling arm @HPSM;;1;;;;;03:00;
+135:00;MCC;BEGIN SEQUENCE: EGSE sensor and actuator test;EGSE sensor & actuator test;1;;;;;;
+134:50;MCC;Confirm that video recording is enabled @ MCC;;1;;;;;00:10;
+134:50;MRL;Confirm that Ignition Umbilical is disconnected;;1;;;;;;
+134:40;EGSE;Start PID data recording;;1;;;;;00:10;
+134:30;MRL;Close HPNV1;;1;;;;;00:10;
+134:20;MRL;Close HPNV2;;1;;;;;00:10;
+134:10;EGSE/ MRL;Switch OxDV to closed & check if magnetic valve LED is on;;1;;;;;00:10;
+134:00;EGSE/ MRL;Switch HPDV to closed & check if magnetic valve LED is on;;1;;;;;00:10;
+133:50;EGSE/ MRL;Check warning lamp on HPSM;;1;;;;;00:10;
+130:50;MRL;Remove loose equipment;;1;;;;;03:00;
+130:40;EGSE/ MRL;Turn ON & OFF Rocket Heater (heizi) & confirm it's heating;;1;;;;;00:10;
+130:30;EGSE/ MRL;Turn ON & OFF N2O_Heater 1 & confirm it's heating;;1;;;;;00:10;
+130:20;EGSE/ MRL;Turn ON & OFF N2O_Heater 2 & confirm it's heating;;1;;;;;00:10;
+130:10;EGSE/ MRL;Turn ON & OFF He_Heater & confirm it's heating;;1;;;;;00:10;
+129:50;EGSE/ MRL;Check Bottle Temperatures @ OxT1, OxT2, HPT2. If above 30C aknowledge high temperature. If above 35C enter HOLD;;1;;;;;00:10;
+129:40;EGSE/ MRL;Check Water Temperatures @ OxWT1, OxWT2, HPWT2;;1;;;;;00:10;
+129:30;EGSE;Deactivate Rocket Heater (heizi);;1;;;;;00:10;
+129:20;EGSE/ MRL;Check OxV1 (CLD & RT_VI);;1;;;;;00:10;
+129:10;EGSE/ MRL;Check OxV2 (CLD & RT_VI);;1;;;;;00:10;
+129:00;EGSE/ MRL;Check MPV3 (CLD & RT_VI);;1;;;;;00:10;
+128:50;EGSE/ MRL;Check HPV1 (CLD & RT_VI);;1;;;;;00:10;
+128:40;EGSE/ MRL;Check HPV2 (CLD & RT_VI);;1;;;;;00:10;
+128:30;EGSE/ MRL;Check MPV1/2 (CLD & RT_VI);;1;;;;;00:10;
+126:00;MRL;Confirm MBV closed;;1;;;;;;
+125:50;EGSE;Confirm that all valve switches are in OFF position (Except OxDV & HPDV);;1;;;;;00:10;
+125:30;EGSE/ MRL;Check loadcell by applying force to it;;1;;;;;00:20;
+125:10;EGSE;Check HPPT1 shows 0 bar;;1;;;;;00:20;
+125:10;EGSE;Check HPPT2 shows 0 bar;;1;;;;;;
+125:10;EGSE;Check HPLPT shows 0 bar;;1;;;;;;
+125:10;EGSE;Check OxInPT1 shows 0 bar;;1;;;;;;
+125:10;EGSE;Check OxInPT2 shows 0 bar;;1;;;;;;
+124:50;EGSE;Check OxOutPT shows 0 bar;;1;;;;;00:20;
+124:50;EGSE/ MRL;Switch on N2O coupling & check if magnetic valve LED is on;;1;;;;;;
+124:50;EGSE/ MRL;Switch on He coupling & check if magnetic valve LED is on;;1;;;;;;
+124:50;EGSE/ MRL;Switch on swivle arm & check if magnetic valve LED is on;;1;;;;;;
+123:50;EGSE;Switch off swivel arm & He coupling & N2O coupling;;1;;;;;01:00;
+119:50;MCC;BEGIN SEQUENCE: Ground segment pressure test (PHASE YELLOW) ;GSE Pressure Test;2;LuF, AlS, LeD: 1x Helm, 3x Ear protectors;ChB, FiH, JuL, LiA, MiS;;;;
+119:40;EGSE/ MRL;Check Bottle Temperatures @ OxT1, OxT2, HPT2. If above 30C aknowledge high temperature. If above 35C enter HOLD;;2;;;;;00:10;
+119:30;EGSE/ MRL;Check Water Temperatures @ OxWT1, OxWT2, HPWT2;;2;;;;;00:10;
+119:30;MRL;Confirm He bottle 1 connector is attached;;2;;;;;;
+119:30;MRL;Confirm He bottle 2 connector is attached;;2;;;;;;
+119:30;MRL;Confirm N2O bottle 1 connector is attached;;2;;;;;;
+119:30;MRL;Confirm N2O bottle 2 connector is attached;;2;;;;;;
+119:30;MRL;Confirm hose between HPSM & N2OSM is connected on both ends;;2;;;;;;
+119:30;MRL;Confirm hose between HPSM & Flight Segment is connected on both ends;;2;;;;;;
+119:30;MRL;Confirm hose between N2OSM & Flight Segment is connected on both ends;;2;;;;;;
+117:30;MRL;Confirm pneumatic hose is connected on both ends;;2;;;;;02:00;
+117:30;MRL;Put on safety equipment;;2;;;;;;
+117:30;MRL;Confirm MBV is closed;;2;;;;;;
+117:30;MRL;Confirm HPNV1 is closed;;2;;;;;;
+117:30;MRL;Confirm HPNV2 is closed;;2;;;;;;
+117:30;MRL;Take positions to open He Bottle 1;;2;;;;;;
+117:30;EGSE;Confirm HPV1 is closed;;2;;;;;;
+117:30;EGSE;Confirm MPV1/2 is closed;;2;;;;;;
+116:30;MRL;Open He Bottle 1;;2;;;;;01:00;
+116:30;EGSE/ MRL;Check & compare pressure HPPT1 with HPPG1 (max 300 bar);;2;;;;;;
+116:30;MRL;Check Gastech Silver HPPR1 (max 300 to 50 bar);;2;;;;;;
+116:30;MRL;Check Harris PPR (50 to 8 bar);;2;;;;;;
+116:30;MRL;Check pneumatic PPG (8 bar);;2;;;;;;
+115:30;MRL;Step back;;2;;;;;01:00;
+115:30;EGSE/ MRL;Open & Close HPV1 SHORTLY & Check HPPT1;;2;;;;;;
+115:30;EGSE;Check HPPT1 300 Bar;;2;;;;;;
+115:30;EGSE;Confirm HPLPT 0 Bar;;2;;;;;;
+115:30;EGSE/ MRL;Open & Close HPV2 SHORTLY & Confirm HPPT2 0 bar;;2;;;;;;
+115:30;EGSE/ MRL;Open & Close HPDV SHORTLY & Confirm HPLPT 0 bar;;2;;;;;;
+115:30;EGSE/ MRL;Open & Close OxV1 SHORTLY;;2;;;;;;
+115:30;EGSE/ MRL;Open & Close OxV2 SHORTLY;;2;;;;;;
+115:30;EGSE/ MRL;Open & Close OxDV SHORTLY;;2;;;;;;
+115:30;EGSE/ MRL;Open & Close MPV3 SHORTLY;;2;;;;;;
+115:30;MRL;Open HPNV1 completely;;2;;;;;;
+115:30;MRL;Step Back;;2;;;;;;
+115:30;EGSE;Open & Close HPV1 STEPWISE untile HPLPT equal to HPPT1 and check for leakage @HPLPT (If leakage occurs proceed to passivation Procedure out of sequence);;2;;;;;;
 115:30;EGSE;"Confirm RHPPT & RoxTPT 1 Bar (If pressure is higher proceed to passivation Procedure out of sequence);;2;;;;
 115:30;EGSE;Open HPV1;;2;;;;
-115:30;EGSE;"Open & Close HPV2 STEPWISE untile HPPT2 equal to HPLPT and check for leakage @HPPT2 (If leakage occurs proceed to passivation Procedure out of sequence)";;2;;;;
-115:30;EGSE;Close HPV1;;2;;;;
-115:30;EGSE;Open STEPWISE HPDV & confirm HPLPT 0 Bar;;2;;;;
-115:30;EGSE;Open STEPWISE HPV2 & confirm HPPT2 0 Bar;;2;;;;
-115:30;EGSE;Close HPV2;;2;;;;
-115:30;EGSE;Close HPDV;;2;;;;
-115:30;EGSE;Open & Close STEPWISE MPV1/2 to 50 Bar @ OxInPT1 & OxInPT2;;2;;;;
-115:30;EGSE;Confirm MPV1/2 closed;;2;;;;
-115:30;EGSE;Open OxDV;;2;;;;
-115:30;EGSE;Open & Close STEPWISE MPV3 & Confirm 0 Bar @OxOutPT;;2;;;;
-115:30;EGSE;Confirm OxOutPT 0 Bar;;2;;;;
-115:30;EGSE;Check OxInPT1 and OxInPT2 for leakage (If leakage occurs proceed to passivation Procedure out of sequence);;2;;;;
-115:30;EGSE;Confirm MPV3 closed;;2;;;;
-115:30;EGSE;Open & Close STEPWISE OxV1 to 0 Bar @OxInPT1;;2;;;;
-115:30;EGSE;Open & Close STEPWISE OxV2 to 0 Bar @OxInPT2;;2;;;;
-115:30;EGSE;Confirm OxOutPT 0 Bar;;2;;;;
-115:30;EGSE;Close OxDV;;2;;;;
-114:00;EGSE;Confirm HPLPT & OxOutPT 0 Bar;;2;;;;01:30
-114:00;EGSE;Decouple N2O coupling;;2;;;;
-113:40;EGSE;Decouple Helium coupling;;2;;;;00:20
-113:40;EGSE;Move arm away from rocket;;2;;;;
-112:40;EGSE;Move arm to rocket;;2;;;;01:00
-111:40;MRL;Close He Bottle 1 and check HPSM for leakage (If leakage occurs proceed to passivation Procedure out of sequence);;2;;;;01:00
-111:40;EGSE;Confirm no high pressures in Ground Segment;;2;;;;
-111:40;MRL;Open MBV;;2;;;;
-111:40;EGSE/ MRL;Check and compare pressure HPPT1 with HPPG1 0 Bar;;2;;;;
-111:10;MRL;Close MBV;;2;;;;00:30
-111:10;MRL;Safety is ensured;;2;;;;
-111:10;MCC;EGSE @MRL Go to MRL;;1;;;;
-111:10;EGSE;Switch OFF N20 coupling;;1;;;;
-111:10;EGSE;Switch OFF He coupling;;1;;;;
-110:50;MRL;Confirm PPG 0 Bar;;1;;;;00:20
-110:30;MRL;Release Pneumatic lines of couplings @HPSM;;1;;;;00:20
-110:30;EGSE;Confirm Fueling arm is switched OFF;;1;;;;
-110:30;EGSE;Confirm OxOutPT and HPLPT 0 bar;;1;;;;
-110:00;MRL;Couple He coupling & Confirm it is connected properly;;1;;;;00:30
-109:30;MRL;Couple N2O coupling & Confirm it is connected properly;;1;;;;00:30
-109:10;MRL;Reattach Pneumatic Line to Fueling arm @HPSM;;1;;;;00:20
-109:00;EGSE/ MRL;Check Bottle Temperatures @ OxT1, OxT2, HPT2. If above 30C aknowledge high temperature. If above 35C enter HOLD;;1;;;;00:10
-108:50;EGSE/ MRL;Check Water Temperatures @ OxWT1, OxWT2, HPWT2;;1;;;;00:10
-108:50;MCC;HOLD;HOLD;1;;;;
-108:50;MCC;CONTINUE AFTER HOLD;;1;;;;
-102:50;MCC;BEGIN SEQUENCE: Prime Rocket;Prime Rocket (PHASE YELLOW);2;;;;
-101:50;EGSE;Confirm EPS_BAT is ON (Rocket OFF);;2;;;;01:00
-100:50;MRL;Confirm working personel is grounded;;2;;;;01:00
-99:50;MRL;Confirm that RMDV is closed;;2;;;;01:00
-98:50;MRL;Close & secure HP maintenance cover;;2;;;;01:00
-97:50;MRL;Close & secure MainOX maintenance cover;;2;;;;01:00
-97:30;MRL;Turn on GoPro Camera at end of Launch Rail;;2;;;;00:20
-97:30;EGSE @MRL;Confirm ALL 8 bridges on the right side are removed;;1;;;;
-97:30;EGSE @MRL;Confirm ALL 8 bridges on the left side are inserted;;1;;;;
-97:10;MRL;Close & secure bridge maintenance cover;;2;;;;00:20
-97:10;MRL;Confirm spring retracted cover at He coupling is moving freely;;2;;;;
-97:10;MRL;Confirm spring retracted cover at N2O coupling is moving freely;;2;;;;
-96:10;MRL;Confirm that HP maintenance cover is closed & secured;;2;;;;01:00
-95:50;MRL;Confirm bridge maintenance cover is closed & secured;;2;;;;00:20
-94:50;MRL;Confirm that MainOX maintenance cover is closed & secured;;2;;;;01:00
-94:50;EGSE @MRL;Turn all Cameras on;;2;;;;
-94:50;EGSE @MRL;Leave MRL & return to MCC;;2;;;;
-94:20;MRL;Connect Ignition Umbilical;;2;;;;00:30
-89:20;OPS;Elevate MRL to 90 degrees;;2;;;;05:00
-89:20;MCC;BEGIN SEQUENCE: Fueling Preparations (PHASE YELLOW);Fueling Preparations;2;;;;
-88:20;EGSE;Zero OxTank Mass;;2;;;;01:00
-88:10;EGSE/ MRL;Check Bottle Temperatures @ OxT1, OxT2, HPT2. If above 30C aknowledge high temperature. If above 35C enter HOLD;;2;;;;00:10
-88:00;EGSE/ MRL;Check Water Temperatures @ OxWT1, OxWT2, HPWT2;;2;;;;00:10
-87:30;MRL;Put on safety equipment;;2;;;;00:30
-87:30;MRL;Confirm HPNV1 is Open;;2;;;;
-87:30;MRL;Confirm HPNV2 is Closed;;2;;;;
-86:30;MRL;Open He Bottle 1;;2;;;;01:00
-86:30;MRL;Step back;;2;;;;
-86:30;EGSE;"Open & Close HPV1 STEPWISE untile HPLPT equal to HPPT1 and check for leakage @HPLPT (If leakage occurs continue with ""GSE Passivation Procedure"")";;2;;;;
-86:30;EGSE;Open HPV1;;2;;;;
-86:30;EGSE;"Open & Close HPV2 STEPWISE untile HPPT2 equal to HPLPT and check for leakage @HPPT2 (If leakage occurs continue with ""GSE Passivation Procedure"")";;2;;;;
-86:30;EGSE;Close HPV1;;2;;;;
-86:30;EGSE;Open STEPWISE HPDV & Confirm HPLPT 0 Bar;;2;;;;
-86:30;EGSE;Confirm HPV1 is closed;;2;;;;
-86:30;EGSE;Confirm HPV2 is closed;;2;;;;
-86:30;EGSE;Close HPDV;;2;;;;
-86:30;MRL;Open HPNV2 1/8 Rev;;2;;;;
-0:00;MRL;Step Back;;2;;;;
-86:30;EGSE;Open & Close STEPWISE MPV1/2 to 50 Bar @ OxInPT1 & OxInPT2;;2;;;;
-86:30;EGSE/ MRL;Check & compare OxInPT1 with OxInPG1 based on Bottle temperature (max 50 bar);;2;;;;
-86:30;EGSE/ MRL;Check & compare pressure OxInPT2 with OxInPG2 based on Bottle temperature (max 50 bar);;2;;;;
-86:30;EGSE/ MRL;Check Temperature of N2O Bottle 1 @OxT1 & OxWT1 (max 22C);;2;;;;
-85:00;EGSE/ MRL;Check Temperature of N2O Bottle 2 @OxT2 & OxWT2 (max 22C);;2;;;;01:30
-78:00;MRL;Insert Ignition Bridges B1 and B2 into EGSE;;2;;;;02:00
-78:00;MRL;Confirm Soundsignal from Ignition Umbilical;;2;;;;
-85:00;MRL;Open He Bottle 2;;2;;;;
-84:00;EGSE/ MRL;Check & compare pressure HPPT2 with HPPG2 (max 315 bar);;2;;;;01:00
-84:00;ALL/ MRL;CAUTION!;;2;;;;
-84:00;MRL;Open N2O Bottle 1;;2;;;;
-82:00;MRL/ EGSE;Check & compare pressure OxInPT 1 with OxInPG 1 (max 50 bar);;2;;;;02:00
-82:00;MRL;Open N2O Bottle 2;;2;;;;
-80:00;MRL/ EGSE;Check & compare pressure OxInPT 2 with OxInPG 2 (max 50 bar);;2;;;;02:00
-78:00;MRL;Close ComTerm & Go to Block House;;2;;;;
-78:00;MCC;Turn OFF MRL confirm lock;;2;;;;
-76:00;ALL;Inform OPS to clear Launch Pad (Tel.: [!!!]);;2;;;;02:00
-76:00;WIND;Start wind weighting analysis;;2;;;;
-75:50;EGSE;Check Bottle Temperatures @ OxT1, OxT2, HPT2. If above 30C aknowledge high temperature. If above 35C enter HOLD;;2;;;;00:10
-75:40;EGSE;Check Water Temperatures @ OxWT1, OxWT2, HPWT2;;2;;;;00:10
-75:40;MCC;HOLD;HOLD;2;;;;
-75:40;KLP;Start Camera Karsten Lappöhn;;2;;;;
-75:40;MCC;CONTINUE AFTER HOLD;;2;;;;
-75:30;EGSE;Check Bottle Temperatures @ OxT1, OxT2, HPT2. If above 30C aknowledge high temperature. If above 35C enter HOLD;;2;;;;00:10
-75:20;EGSE;Check Water Temperatures @ OxWT1, OxWT2, HPWT2;;2;;;;00:10
-75:10;EGSE;Confirm storage capacity of CRio is greater than 300MB;;2;;;;00:10
-75:10;MCC;BEGIN SEQUENCE Ox Fueling (PHASE RED);Ox Fueling (PHASE RED);3;;;;
-75:10;WIND;Report on weather situation;;3;;;;
-75:10;MCC;Announce end of Radio Silence;;3;;;;
-75:10;EGSE;Turn OFF EPS_BAT (Rocket ON);;3;;;;
-75:10;MCC;Confirm 3 beeps at OBC1;;1;;;;
-75:10;OBDH;Connect to sbRio using remote Access utility;;3;;;;
-75:10;OBDH;Open RT_Sub_HMI;;3;;;;
-75:00;OBDH;Confirm RNCEV is disabled;;3;;;;00:10
-75:00;OBDH;Confirm Main Chute button is disabled;;3;;;;
-74:50;OBDH;Check EPS hardware Voltages;;3;;;;00:10
-74:40;EGSE;Check EGSE Currents;;3;;;;00:10
-74:20;OBDH/ TMTC;Confirm RF451-Link;;3;;;;00:20
-74:00;TMTC;Confirm GPS-lock;;3;;;;00:20
-73:40;TMTC;Confirm Telemega-Link;;3;;;;00:20
-73:10;AVC;Turn on main TMTC screen;;3;;;;00:30
-72:50;PYL;Confirm CanSat is running;;3;;;;00:20
-72:50;PYL;Confirm BlackBox2 is running;;3;;;;
-69:50;MCC;Request Permission to begin fueling from OPS;;3;;;;03:00
-68:50;OBDH;Acknowledge start of Fueling;;3;;;;01:00
-68:50;EGSE;Open & Close HPV1 STEPWISE to 50 Bar @ ROxTPT (stop every 10 bar & check ROxTBT & ROxTTT (approx. ambiente temp);;3;;;;
-68:50;EGSE;Confirm OxOutPT 0 Bar to check ROxCV tightness;;3;;;;
-68:50;EGSE;Open & Close HPV1 STEPWISE to more than 50 Bar @ RHPPT and confirm ROxTPT 50 Bar;;3;;;;
-68:50;EGSE;Confirm HPV1 is closed;;3;;;;
-68:50;OBDH;Open RDV SHORTLY, to check tightness @ RHPPT & ROxTPT (If leakages occur continue with Abort Procedure);;3;;;;
-68:50;EGSE;Open MPV1/2;;3;;;;
-68:50;EGSE;Open & Close MPV3 STEPWISE to 50 Bar @ OxOutPT;;3;;;;
-68:50;EGSE;Close MPV1/2;;3;;;;
-68:50;EGSE;Check & compare OxOutPT with OxInPT1;;3;;;;
-68:50;EGSE;Check if RHPPT & ROxTPT more than OxInPT1, If less Open & Close HPV1;;3;;;;
-68:50;EGSE;Zero OxTank Mass;;3;;;;
-68:50;MCC;Write down Time;;3;;;;
-64:50;EGSE;Open OxV1;;3;;;;04:00
-34:50;OBDH;Open & Close RDV STEPWISE until N2O bottle empty or 25kg OxTankMass, keep temperatures RDVT and RDVET above 10°C and Check delta ROxTPT and OxInPT1;;3;;;;30:00:00
-34:40;EGSE;Verify Bottle Temperatures @ OxT1, OxT2, HPT2;;3;;;;00:10
-34:30;EGSE;Verify Water Temperatures @ Ox@T1, OxWT2, HPWT2;;3;;;;00:10
-34:20;EGSE;Close OxV1;;3;;;;00:10
-33:20;EGSE;Check if Pressure rises in OxPT1, if Pressure rises relief via OxV1 or wait for Pressure relief valve;;3;;;;01:00
-33:20;EGSE;Check & compare OxOutPT with OxInPT2;;3;;;;
-33:20;EGSE;Check & compare RHPPT & ROxTPT 50 Bar and more than OxInPT2, If less Open & Close HPV1;;3;;;;
-33:20;EGSE;Open OxV2 ;;3;;;;
-13:20;OBDH;Open & Close RDV STEPWISE to 25kg OxTankMass, keep temperatures RDVT and RDVET above 10°C and Check delta OxTPT and OxInPT1;;3;;;;20:00
-13:10;EGSE;Close OxV2 ;;3;;;;00:10
-12:10;EGSE;Check if Pressure rises in OxPT2, if Pressure rises relief via OxV2 or wait for Pressure relief valve;;3;;;;01:00
-12:10;EGSE;Open OxDV STEPWISE until OxOutPT 0 Bar;;3;;;;
-12:10;OBDH;Check ROxCV for tightness @ ROxTPT;;3;;;;
-11:10;EGSE;Close OxDV;;3;;;;01:00
-11:10;EGSE;Write down OxTankMass;;3;;;;
-11:00;EGSE;Verify He Bottle 2 Temperature @HPT2 & @HPWT2 (turn ON He_Heater if necessary) ;;3;;;;00:10
-10:30;MCC;Provide OxTankMass and temperature readings to Wind weighting station Tel[!!!];;3;;;;00:30
-10:30;EGSE;Confirm OxV1 & OxV2 closed;;3;;;;
-10:30;EGSE;Confirm OxOutPT 0 Bar;;3;;;;
-10:10;EGSE;Decouple N2O coupling;;3;;;;00:20
-9:55;MCC;Confirm End of Oxidator Fueling to OPS;;3;;;;00:15
-9:55;WIND;Start wind weighting analysis;;3;;;;
-9:35;OBDH/ TMTC;Check RF451-Link;;3;;;;00:20
-9:15;TMTC;Check GPS-lock;;3;;;;00:20
-8:55;TMTC;Check Telemega-Link;;3;;;;00:20
-8:45;EGSE;Verify He Bottle 2 Temperature @HPT2 & @HPWT2 (turn ON/OFF He_Heater if necessary) ;;3;;;;00:10
-8:45;MCC;HOLD (Last possible scheduled HOLD);HOLD;3;;;;
-8:45;OPS;Align MRL to Launch Trajectory;;3;;;;
-8:45;MCC;Turn audio volume down;;3;;;;
-8:45;MCC;Turn OFF ComTerm step delay;;3;;;;
-8:45;ALL;Talk through Ignition Sequence;;3;;;;
-8:45;MCC;Wait for OPS to confirm final MRL adjustment;;3;;;;
-8:45;WIND;Report on weather situation;;3;;;;
-8:45;MCC;CONTINUE AFTER HOLD;;3;;;;
-8:45;AVC;Start Video recording in Block House;;3;;;;
-8:35;EGSE;Verify He Bottle 2 Temperature @HPT2 & @HPWT2 (turn ON/OFF He_Heater if necessary) ;;3;;;;00:10
-8:35;MCC;BEGIN SEQUENCE: Switching to Internal Power;Switch to Internal Power;3;;;;
-8:15;EGSE;Turn OFF EPS_EXT_24V (Switch to internal Power);;3;;;;00:20
-8:05;OBDH;Confirm EPS Voltages are within limits;;3;;;;00:10
-8:00;OBDH;Confirm RF451 Transmitting;;3;;;;00:05
-7:40;OBDH/ TMTC;Confirm RF451-Link;;3;;;;00:20
-7:20;TMTC;Confirm GPS-lock;;3;;;;00:20
-7:00;TMTC;Confirm Telemega-Link;;3;;;;00:20
-6:50;OBDH;Switch to PREARMED;;3;;;;00:10
-6:30;PYL;Confirm Payload is running;;3;;;;00:20
-6:30;PYL;Confirm BlackBox2 is ready for launch;;3;;;;
-6:25;AVC;Confirm that videorecording @ MCC is running;;3;;;;00:05
-6:25;MCC;BEGIN SEQUENCE: High Pressure Fueling;High Pressure Fueling;3;;;;
-6:15;EGSE;Verify He Bottle 2 Temperature @HPT2 & @HPWT2 (turn ON/OFF He_Heater if necessary) ;;3;;;;00:10
-6:15;EGSE;Open & Close HPV1 STEPWISE until RHPPT 300 Bar or pressure equal to He Bottle 1;;3;;;;
-6:15;EGSE;Open & Close HPV2 STEPWISE until RHPPT 300 Bar ;;3;;;;
-6:15;EGSE;Open & close HPDV STEPWISE until HPLPT 0 Bar ;;3;;;;
-6:15;EGSE;Confirm HPDV closed;;3;;;;
-4:15;OBDH/ EGSE;Check for leakage & HPLPT 0 Bar & RHPPT 300 Bar ;;3;;;;02:00
-4:15;EGSE;Turn OFF He_Heater;;3;;;;
-4:05;OBDH;Acknowledge end of Fueling;;3;;;;00:10
-3:45;MCC;Confirm End of High-Pressure Fueling to OPS;;3;;;;00:20
-3:35;MCC;BEGIN SEQUENCE: Disconnecting Fueling Arm;Disconnecting Fueling Arm;3;;;;00:10
-3:25;EGSE;Confirm HPV1 & HPV2 closed;;3;;;;00:10
-3:15;EGSE;Confirm HPLPT 0 Bar ;;3;;;;00:10
-2:55;EGSE;Decouple Helium coupling;;3;;;;00:20
-2:45;EGSE;Confirm Helium coupling is disconnected;;3;;;;00:10
-2:05;EGSE;Move fueling arm away from rocket;;3;;;;00:40
-1:50;MCC;Confirm Fueling Arm away to OPS;;3;;;;00:15
-1:40;MCC;Prepare for Launch;;3;;;;00:10
-1:30;EGSE;Activate High-Speed data recording;;3;;;;00:10
-1:20;OBDH;Confirm ready for launch;;3;;;;00:10
-1:10;EGSE;Confirm ready for launch;;3;;;;00:10
-1:00;MCC;Set Go/No-Go System to Go;;3;;;;00:10
-1:00;MCC;Wait for Authorization for Launch;;3;;;;00:00
-0:50;MCC;BEGIN SEQUENCE: Ignition;Ignition Sequence;3;;;;00:10
-0:45;OBDH;T-50 ARM;;3;;;;00:05
-0:40;OBDH;T-40 Confirm all status indicators green;;3;;;;00:05
-0:10;OBDH;T-30 Disconnect from sbRio;;3;;;;00:30
-0:03;EGSE;T-10 Turn on Ignition Secure;;3;;;;00:07
-0:00;EGSE;T-3: Ignition;;3;;;;00:03
-0:00;OBDH;T+0: Verify RMOxOV Open (Launched);;3;;;;00:00
-0:00;EGSE;T+0:1: Turn OFF Ignition;;3;;;;
-0:00;EGSE;T+0:5: Turn OFF Ignition Secure;;3;;;;
--1:-0;EGSE;T+0:15: Turn ON EPS_BAT (Rocket OFF);;3;;;;01:00
--1:-0;OBDH;T+0:20: Verify RMOxOV Closed and RMOxSV Open (Cruise);;3;;;;
--1:-0;OBDH;T+0:50: Verify RNCEV Open (Drogue);;3;;;;
--1:-0;OBDH;T+05:10: Verify Main Chute Deployed and RDV Open (Main);;3;;;;
--1:-0;OBDH;T+10:00: Verify (Landed);;3;;;;
--1:-0;MCC;BEGIN SEQUENCE: PASSIVATION (PHASE YELLOW);Passivation;2;;;;
--1:-0;MCC;Announce BEGIN of Radio Silence;;2;;;;
--1:-0;MCC;Turn audio volume up;;2;;;;
--1:-0;MRL;Go to MRL, THEN...;;2;;;;
--1:-0;MRL;Close N2O Bottle 1 & N2O Bottle 2, THEN...;;2;;;;
--1:-0;MRL;RETURN to Block House;;2;;;;
--1:-0;EGSE;Open OxDV;;2;;;;
--1:-0;EGSE;Open OxV1;;2;;;;
--1:-0;EGSE;Confirm OxInPT1 & OxOutPT 0 Bar;;2;;;;
--1:-0;EGSE;Close OxV1;;2;;;;
--1:-0;EGSE;Open OxV2;;2;;;;
--1:-0;EGSE;Confirm OxInPT2 & OxOutPT 0 Bar;;2;;;;
--1:-0;EGSE;Close OxV2;;2;;;;
--1:-0;EGSE;Close OxDV;;2;;;;
--1:-0;MRL;Go to MRL, confirm OxInPG1 & OxInPG2 0 Bar, else RETURN to Block House, THEN...;;2;;;;
--1:-0;MRL;Close He Bottle 2, THEN...;;2;;;;
--1:-0;MRL;Write down remaining Pressure of He Bottle 2, THEN...;;2;;;;
--1:-0;MRL;Return to Block House;;2;;;;
--1:-0;EGSE;Open HPDV;;2;;;;
--1:-0;EGSE;Open HPV2;;2;;;;
--1:-0;EGSE;Confirm pressure HPLPT & HPPT2 0 Bar;;2;;;;
--1:-0;EGSE;Close HPV2;;2;;;;
--1:-0;EGSE;Close HPDV;;2;;;;
--1:-0;MRL;Go to MRL, confirm HPPG2 0 Bar, else return to Block House, THEN...;;2;;;;
--1:-0;MRL;Close He Bottle 1, THEN ...;;2;;;;
--1:-0;MRL;Open ComTerm;;2;;;;
--1:-0;MCC;Turn ON ComTerm step delay;;2;;;;
--1:-0;MCC;Turn OFF MRL confirm lock;;2;;;;
--1:-0;EGSE/ MRL;Write down remaining Pressure of He Bottle 1;;2;;;;
--1:-0;MRL;Step back;;2;;;;
--1:-0;EGSE;Open HPDV;;2;;;;
--1:-0;EGSE;Open HPV1;;2;;;;
--1:-0;EGSE;Confirm pressure HPLPT & HPPT1 0 Bar;;2;;;;
--1:-0;EGSE;Close HPV1;;2;;;;
--1:-0;EGSE;Close HPDV;;2;;;;
--1:-0;EGSE;Confirm no high pressures in Ground Segment;;2;;;;
--1:-0;MRL;Open MBV;;2;;;;
--1:-0;EGSE/ MRL;Check and compare pressure HPPT1 with HPPG1;;2;;;;
--1:-0;MRL;Close MBV;;2;;;;
--1:-0;MRL;Take out B1 & B2 Bridges;;2;;;;
--1:-0;MRL;Safety is ensured;;2;;;;
--1:-0;MCC;Confirm to OPS that Safety is ensured;;2;;;;
--1:-0;MCC;BEGIN SEQUENCE: Data collection;Data collection;1;;;;
--1:-0;AVC;Turn off GoPro & Camcorder & Stop Block House Video recording;;1;;;;
--1:-0;EGSE;Copy PID.vi.tdms & save to new name;;1;;;;
--1:-0;EGSE;Wait for buffer storage process to be finished;;1;;;;
--1:-0;EGSE;save data files from cRio to PC;;1;;;;
--1:-0;WIND;Save data on external HDD;;1;;;;
--1:-0;TMTC;Stop TMTC Vi and save data on external HDD;;1;;;;
--1:-0;AVC;End audio recording;;1;;;;
--1:-0;MCC;Stop ComTerm and save logfile to external HDD, THEN...;;1;;;;
--1:-0;MCC;Restart ComTerm VI;;1;;;;
--1:-0;AVC;Save video & audio data on external HDD;;1;;;;
--1:-0;MCC;END OF PROCEDURE;End;1;;;;
+115:30;EGSE;""Open & Close HPV2 STEPWISE untile HPPT2 equal to HPLPT and check for leakage @HPPT2 (If leakage occurs proceed to passivation Procedure out of sequence)";;2;;;;;;
+115:30;EGSE;Close HPV1;;2;;;;;;
+115:30;EGSE;Open STEPWISE HPDV & confirm HPLPT 0 Bar;;2;;;;;;
+115:30;EGSE;Open STEPWISE HPV2 & confirm HPPT2 0 Bar;;2;;;;;;
+115:30;EGSE;Close HPV2;;2;;;;;;
+115:30;EGSE;Close HPDV;;2;;;;;;
+115:30;EGSE;Open & Close STEPWISE MPV1/2 to 50 Bar @ OxInPT1 & OxInPT2;;2;;;;;;
+115:30;EGSE;Confirm MPV1/2 closed;;2;;;;;;
+115:30;EGSE;Open OxDV;;2;;;;;;
+115:30;EGSE;Open & Close STEPWISE MPV3 & Confirm 0 Bar @OxOutPT;;2;;;;;;
+115:30;EGSE;Confirm OxOutPT 0 Bar;;2;;;;;;
+115:30;EGSE;Check OxInPT1 and OxInPT2 for leakage (If leakage occurs proceed to passivation Procedure out of sequence);;2;;;;;;
+115:30;EGSE;Confirm MPV3 closed;;2;;;;;;
+115:30;EGSE;Open & Close STEPWISE OxV1 to 0 Bar @OxInPT1;;2;;;;;;
+115:30;EGSE;Open & Close STEPWISE OxV2 to 0 Bar @OxInPT2;;2;;;;;;
+115:30;EGSE;Confirm OxOutPT 0 Bar;;2;;;;;;
+115:30;EGSE;Close OxDV;;2;;;;;;
+114:00;EGSE;Confirm HPLPT & OxOutPT 0 Bar;;2;;;;;01:30;
+114:00;EGSE;Decouple N2O coupling;;2;;;;;;
+113:40;EGSE;Decouple Helium coupling;;2;;;;;00:20;
+113:40;EGSE;Move arm away from rocket;;2;;;;;;
+112:40;EGSE;Move arm to rocket;;2;;;;;01:00;
+111:40;MRL;Close He Bottle 1 and check HPSM for leakage (If leakage occurs proceed to passivation Procedure out of sequence);;2;;;;;01:00;
+111:40;EGSE;Confirm no high pressures in Ground Segment;;2;;;;;;
+111:40;MRL;Open MBV;;2;;;;;;
+111:40;EGSE/ MRL;Check and compare pressure HPPT1 with HPPG1 0 Bar;;2;;;;;;
+111:10;MRL;Close MBV;;2;;;;;00:30;
+111:10;MRL;Safety is ensured;;2;;;;;;
+111:10;MCC;EGSE @MRL Go to MRL;;1;;;;;;
+111:10;EGSE;Switch OFF N20 coupling;;1;;;;;;
+111:10;EGSE;Switch OFF He coupling;;1;;;;;;
+110:50;MRL;Confirm PPG 0 Bar;;1;;;;;00:20;
+110:30;MRL;Release Pneumatic lines of couplings @HPSM;;1;;;;;00:20;
+110:30;EGSE;Confirm Fueling arm is switched OFF;;1;;;;;;
+110:30;EGSE;Confirm OxOutPT and HPLPT 0 bar;;1;;;;;;
+110:00;MRL;Couple He coupling & Confirm it is connected properly;;1;;;;;00:30;
+109:30;MRL;Couple N2O coupling & Confirm it is connected properly;;1;;;;;00:30;
+109:10;MRL;Reattach Pneumatic Line to Fueling arm @HPSM;;1;;;;;00:20;
+109:00;EGSE/ MRL;Check Bottle Temperatures @ OxT1, OxT2, HPT2. If above 30C aknowledge high temperature. If above 35C enter HOLD;;1;;;;;00:10;
+108:50;EGSE/ MRL;Check Water Temperatures @ OxWT1, OxWT2, HPWT2;;1;;;;;00:10;
+108:50;MCC;HOLD;HOLD;1;;;;;;
+108:50;MCC;CONTINUE AFTER HOLD;;1;;;;;;
+102:50;MCC;BEGIN SEQUENCE: Prime Rocket;Prime Rocket (PHASE YELLOW);2;;;;;;
+101:50;EGSE;Confirm EPS_BAT is ON (Rocket OFF);;2;;;;;01:00;
+100:50;MRL;Confirm working personel is grounded;;2;;;;;01:00;
+99:50;MRL;Confirm that RMDV is closed;;2;;;;;01:00;
+98:50;MRL;Close & secure HP maintenance cover;;2;;;;;01:00;
+97:50;MRL;Close & secure MainOX maintenance cover;;2;;;;;01:00;
+97:30;MRL;Turn on GoPro Camera at end of Launch Rail;;2;;;;;00:20;
+97:30;EGSE @MRL;Confirm ALL 8 bridges on the right side are removed;;1;;;;;;
+97:30;EGSE @MRL;Confirm ALL 8 bridges on the left side are inserted;;1;;;;;;
+97:10;MRL;Close & secure bridge maintenance cover;;2;;;;;00:20;
+97:10;MRL;Confirm spring retracted cover at He coupling is moving freely;;2;;;;;;
+97:10;MRL;Confirm spring retracted cover at N2O coupling is moving freely;;2;;;;;;
+96:10;MRL;Confirm that HP maintenance cover is closed & secured;;2;;;;;01:00;
+95:50;MRL;Confirm bridge maintenance cover is closed & secured;;2;;;;;00:20;
+94:50;MRL;Confirm that MainOX maintenance cover is closed & secured;;2;;;;;01:00;
+94:50;EGSE @MRL;Turn all Cameras on;;2;;;;;;
+94:50;EGSE @MRL;Leave MRL & return to MCC;;2;;;;;;
+94:20;MRL;Connect Ignition Umbilical;;2;;;;;00:30;
+89:20;OPS;Elevate MRL to 90 degrees;;2;;;;;05:00;
+89:20;MCC;BEGIN SEQUENCE: Fueling Preparations (PHASE YELLOW);Fueling Preparations;2;;;;;;
+88:20;EGSE;Zero OxTank Mass;;2;;;;;01:00;
+88:10;EGSE/ MRL;Check Bottle Temperatures @ OxT1, OxT2, HPT2. If above 30C aknowledge high temperature. If above 35C enter HOLD;;2;;;;;00:10;
+88:00;EGSE/ MRL;Check Water Temperatures @ OxWT1, OxWT2, HPWT2;;2;;;;;00:10;
+87:30;MRL;Put on safety equipment;;2;;;;;00:30;
+87:30;MRL;Confirm HPNV1 is Open;;2;;;;;;
+87:30;MRL;Confirm HPNV2 is Closed;;2;;;;;;
+86:30;MRL;Open He Bottle 1;;2;;;;;01:00;
+86:30;MRL;Step back;;2;;;;;;
+86:30;EGSE;"Open & Close HPV1 STEPWISE untile HPLPT equal to HPPT1 and check for leakage @HPLPT (If leakage occurs continue with ""GSE Passivation Procedure"")";;2;;;;;;
+86:30;EGSE;Open HPV1;;2;;;;;;
+86:30;EGSE;"Open & Close HPV2 STEPWISE untile HPPT2 equal to HPLPT and check for leakage @HPPT2 (If leakage occurs continue with ""GSE Passivation Procedure"")";;2;;;;;;
+86:30;EGSE;Close HPV1;;2;;;;;;
+86:30;EGSE;Open STEPWISE HPDV & Confirm HPLPT 0 Bar;;2;;;;;;
+86:30;EGSE;Confirm HPV1 is closed;;2;;;;;;
+86:30;EGSE;Confirm HPV2 is closed;;2;;;;;;
+86:30;EGSE;Close HPDV;;2;;;;;;
+86:30;MRL;Open HPNV2 1/8 Rev;;2;;;;;;
+0:00;MRL;Step Back;;2;;;;;;
+86:30;EGSE;Open & Close STEPWISE MPV1/2 to 50 Bar @ OxInPT1 & OxInPT2;;2;;;;;;
+86:30;EGSE/ MRL;Check & compare OxInPT1 with OxInPG1 based on Bottle temperature (max 50 bar);;2;;;;;;
+86:30;EGSE/ MRL;Check & compare pressure OxInPT2 with OxInPG2 based on Bottle temperature (max 50 bar);;2;;;;;;
+86:30;EGSE/ MRL;Check Temperature of N2O Bottle 1 @OxT1 & OxWT1 (max 22C);;2;;;;;;
+85:00;EGSE/ MRL;Check Temperature of N2O Bottle 2 @OxT2 & OxWT2 (max 22C);;2;;;;;01:30;
+78:00;MRL;Insert Ignition Bridges B1 and B2 into EGSE;;2;;;;;02:00;
+78:00;MRL;Confirm Soundsignal from Ignition Umbilical;;2;;;;;;
+85:00;MRL;Open He Bottle 2;;2;;;;;;
+84:00;EGSE/ MRL;Check & compare pressure HPPT2 with HPPG2 (max 315 bar);;2;;;;;01:00;
+84:00;ALL/ MRL;CAUTION!;;2;;;;;;
+84:00;MRL;Open N2O Bottle 1;;2;;;;;;
+82:00;MRL/ EGSE;Check & compare pressure OxInPT 1 with OxInPG 1 (max 50 bar);;2;;;;;02:00;
+82:00;MRL;Open N2O Bottle 2;;2;;;;;;
+80:00;MRL/ EGSE;Check & compare pressure OxInPT 2 with OxInPG 2 (max 50 bar);;2;;;;;02:00;
+78:00;MRL;Close ComTerm & Go to Block House;;2;;;;;;
+78:00;MCC;Turn OFF MRL confirm lock;;2;;;;;;
+76:00;ALL;Inform OPS to clear Launch Pad (Tel.: [!!!]);;2;;;;;02:00;
+76:00;WIND;Start wind weighting analysis;;2;;;;;;
+75:50;EGSE;Check Bottle Temperatures @ OxT1, OxT2, HPT2. If above 30C aknowledge high temperature. If above 35C enter HOLD;;2;;;;;00:10;
+75:40;EGSE;Check Water Temperatures @ OxWT1, OxWT2, HPWT2;;2;;;;;00:10;
+75:40;MCC;HOLD;HOLD;2;;;;;;
+75:40;KLP;Start Camera Karsten Lappï¿½hn;;2;;;;;;
+75:40;MCC;CONTINUE AFTER HOLD;;2;;;;;;
+75:30;EGSE;Check Bottle Temperatures @ OxT1, OxT2, HPT2. If above 30C aknowledge high temperature. If above 35C enter HOLD;;2;;;;;00:10;
+75:20;EGSE;Check Water Temperatures @ OxWT1, OxWT2, HPWT2;;2;;;;;00:10;
+75:10;EGSE;Confirm storage capacity of CRio is greater than 300MB;;2;;;;;00:10;
+75:10;MCC;BEGIN SEQUENCE Ox Fueling (PHASE RED);Ox Fueling (PHASE RED);3;;;;;;
+75:10;WIND;Report on weather situation;;3;;;;;;
+75:10;MCC;Announce end of Radio Silence;;3;;;;;;
+75:10;EGSE;Turn OFF EPS_BAT (Rocket ON);;3;;;;;;
+75:10;MCC;Confirm 3 beeps at OBC1;;1;;;;;;
+75:10;OBDH;Connect to sbRio using remote Access utility;;3;;;;;;
+75:10;OBDH;Open RT_Sub_HMI;;3;;;;;;
+75:00;OBDH;Confirm RNCEV is disabled;;3;;;;;00:10;
+75:00;OBDH;Confirm Main Chute button is disabled;;3;;;;;;
+74:50;OBDH;Check EPS hardware Voltages;;3;;;;;00:10;
+74:40;EGSE;Check EGSE Currents;;3;;;;;00:10;
+74:20;OBDH/ TMTC;Confirm RF451-Link;;3;;;;;00:20;
+74:00;TMTC;Confirm GPS-lock;;3;;;;;00:20;
+73:40;TMTC;Confirm Telemega-Link;;3;;;;;00:20;
+73:10;AVC;Turn on main TMTC screen;;3;;;;;00:30;
+72:50;PYL;Confirm CanSat is running;;3;;;;;00:20;
+72:50;PYL;Confirm BlackBox2 is running;;3;;;;;;
+69:50;MCC;Request Permission to begin fueling from OPS;;3;;;;;03:00;
+68:50;OBDH;Acknowledge start of Fueling;;3;;;;;01:00;
+68:50;EGSE;Open & Close HPV1 STEPWISE to 50 Bar @ ROxTPT (stop every 10 bar & check ROxTBT & ROxTTT (approx. ambiente temp);;3;;;;;;
+68:50;EGSE;Confirm OxOutPT 0 Bar to check ROxCV tightness;;3;;;;;;
+68:50;EGSE;Open & Close HPV1 STEPWISE to more than 50 Bar @ RHPPT and confirm ROxTPT 50 Bar;;3;;;;;;
+68:50;EGSE;Confirm HPV1 is closed;;3;;;;;;
+68:50;OBDH;Open RDV SHORTLY, to check tightness @ RHPPT & ROxTPT (If leakages occur continue with Abort Procedure);;3;;;;;;
+68:50;EGSE;Open MPV1/2;;3;;;;;;
+68:50;EGSE;Open & Close MPV3 STEPWISE to 50 Bar @ OxOutPT;;3;;;;;;
+68:50;EGSE;Close MPV1/2;;3;;;;;;
+68:50;EGSE;Check & compare OxOutPT with OxInPT1;;3;;;;;;
+68:50;EGSE;Check if RHPPT & ROxTPT more than OxInPT1, If less Open & Close HPV1;;3;;;;;;
+68:50;EGSE;Zero OxTank Mass;;3;;;;;;
+68:50;MCC;Write down Time;;3;;;;;;
+64:50;EGSE;Open OxV1;;3;;;;;04:00;
+34:50;OBDH;Open & Close RDV STEPWISE until N2O bottle empty or 25kg OxTankMass, keep temperatures RDVT and RDVET above 10ï¿½C and Check delta ROxTPT and OxInPT1;;3;;;;;30:00:00;
+34:40;EGSE;Verify Bottle Temperatures @ OxT1, OxT2, HPT2;;3;;;;;00:10;
+34:30;EGSE;Verify Water Temperatures @ Ox@T1, OxWT2, HPWT2;;3;;;;;00:10;
+34:20;EGSE;Close OxV1;;3;;;;;00:10;
+33:20;EGSE;Check if Pressure rises in OxPT1, if Pressure rises relief via OxV1 or wait for Pressure relief valve;;3;;;;;01:00;
+33:20;EGSE;Check & compare OxOutPT with OxInPT2;;3;;;;;;
+33:20;EGSE;Check & compare RHPPT & ROxTPT 50 Bar and more than OxInPT2, If less Open & Close HPV1;;3;;;;;;
+33:20;EGSE;Open OxV2 ;;3;;;;;;
+13:20;OBDH;Open & Close RDV STEPWISE to 25kg OxTankMass, keep temperatures RDVT and RDVET above 10ï¿½C and Check delta OxTPT and OxInPT1;;3;;;;;20:00;
+13:10;EGSE;Close OxV2 ;;3;;;;;00:10;
+12:10;EGSE;Check if Pressure rises in OxPT2, if Pressure rises relief via OxV2 or wait for Pressure relief valve;;3;;;;;01:00;
+12:10;EGSE;Open OxDV STEPWISE until OxOutPT 0 Bar;;3;;;;;;
+12:10;OBDH;Check ROxCV for tightness @ ROxTPT;;3;;;;;;
+11:10;EGSE;Close OxDV;;3;;;;;01:00;
+11:10;EGSE;Write down OxTankMass;;3;;;;;;
+11:00;EGSE;Verify He Bottle 2 Temperature @HPT2 & @HPWT2 (turn ON He_Heater if necessary) ;;3;;;;;00:10;
+10:30;MCC;Provide OxTankMass and temperature readings to Wind weighting station Tel[!!!];;3;;;;;00:30;
+10:30;EGSE;Confirm OxV1 & OxV2 closed;;3;;;;;;
+10:30;EGSE;Confirm OxOutPT 0 Bar;;3;;;;;;
+10:10;EGSE;Decouple N2O coupling;;3;;;;;00:20;
+9:55;MCC;Confirm End of Oxidator Fueling to OPS;;3;;;;;00:15;
+9:55;WIND;Start wind weighting analysis;;3;;;;;;
+9:35;OBDH/ TMTC;Check RF451-Link;;3;;;;;00:20;
+9:15;TMTC;Check GPS-lock;;3;;;;;00:20;
+8:55;TMTC;Check Telemega-Link;;3;;;;;00:20;
+8:45;EGSE;Verify He Bottle 2 Temperature @HPT2 & @HPWT2 (turn ON/OFF He_Heater if necessary) ;;3;;;;;00:10;
+8:45;MCC;HOLD (Last possible scheduled HOLD);HOLD;3;;;;;;
+8:45;OPS;Align MRL to Launch Trajectory;;3;;;;;;
+8:45;MCC;Turn audio volume down;;3;;;;;;
+8:45;MCC;Turn OFF ComTerm step delay;;3;;;;;;
+8:45;ALL;Talk through Ignition Sequence;;3;;;;;;
+8:45;MCC;Wait for OPS to confirm final MRL adjustment;;3;;;;;;
+8:45;WIND;Report on weather situation;;3;;;;;;
+8:45;MCC;CONTINUE AFTER HOLD;;3;;;;;;
+8:45;AVC;Start Video recording in Block House;;3;;;;;;
+8:35;EGSE;Verify He Bottle 2 Temperature @HPT2 & @HPWT2 (turn ON/OFF He_Heater if necessary) ;;3;;;;;00:10;
+8:35;MCC;BEGIN SEQUENCE: Switching to Internal Power;Switch to Internal Power;3;;;;;;
+8:15;EGSE;Turn OFF EPS_EXT_24V (Switch to internal Power);;3;;;;;00:20;
+8:05;OBDH;Confirm EPS Voltages are within limits;;3;;;;;00:10;
+8:00;OBDH;Confirm RF451 Transmitting;;3;;;;;00:05;
+7:40;OBDH/ TMTC;Confirm RF451-Link;;3;;;;;00:20;
+7:20;TMTC;Confirm GPS-lock;;3;;;;;00:20;
+7:00;TMTC;Confirm Telemega-Link;;3;;;;;00:20;
+6:50;OBDH;Switch to PREARMED;;3;;;;;00:10;
+6:30;PYL;Confirm Payload is running;;3;;;;;00:20;
+6:30;PYL;Confirm BlackBox2 is ready for launch;;3;;;;;;
+6:25;AVC;Confirm that videorecording @ MCC is running;;3;;;;;00:05;
+6:25;MCC;BEGIN SEQUENCE: High Pressure Fueling;High Pressure Fueling;3;;;;;;
+6:15;EGSE;Verify He Bottle 2 Temperature @HPT2 & @HPWT2 (turn ON/OFF He_Heater if necessary) ;;3;;;;;00:10;
+6:15;EGSE;Open & Close HPV1 STEPWISE until RHPPT 300 Bar or pressure equal to He Bottle 1;;3;;;;;;
+6:15;EGSE;Open & Close HPV2 STEPWISE until RHPPT 300 Bar ;;3;;;;;;
+6:15;EGSE;Open & close HPDV STEPWISE until HPLPT 0 Bar ;;3;;;;;;
+6:15;EGSE;Confirm HPDV closed;;3;;;;;;
+4:15;OBDH/ EGSE;Check for leakage & HPLPT 0 Bar & RHPPT 300 Bar ;;3;;;;;02:00;
+4:15;EGSE;Turn OFF He_Heater;;3;;;;;;
+4:05;OBDH;Acknowledge end of Fueling;;3;;;;;00:10;
+3:45;MCC;Confirm End of High-Pressure Fueling to OPS;;3;;;;;00:20;
+3:35;MCC;BEGIN SEQUENCE: Disconnecting Fueling Arm;Disconnecting Fueling Arm;3;;;;;00:10;
+3:25;EGSE;Confirm HPV1 & HPV2 closed;;3;;;;;00:10;
+3:15;EGSE;Confirm HPLPT 0 Bar ;;3;;;;;00:10;
+2:55;EGSE;Decouple Helium coupling;;3;;;;;00:20;
+2:45;EGSE;Confirm Helium coupling is disconnected;;3;;;;;00:10;
+2:05;EGSE;Move fueling arm away from rocket;;3;;;;;00:40;
+1:50;MCC;Confirm Fueling Arm away to OPS;;3;;;;;00:15;
+1:40;MCC;Prepare for Launch;;3;;;;;00:10;
+1:30;EGSE;Activate High-Speed data recording;;3;;;;;00:10;
+1:20;OBDH;Confirm ready for launch;;3;;;;;00:10;
+1:10;EGSE;Confirm ready for launch;;3;;;;;00:10;
+1:00;MCC;Set Go/No-Go System to Go;;3;;;;;00:10;
+1:00;MCC;Wait for Authorization for Launch;;3;;;;;00:00;
+0:50;MCC;BEGIN SEQUENCE: Ignition;Ignition Sequence;3;;;;;00:10;
+0:45;OBDH;T-50 ARM;;3;;;;;00:05;
+0:40;OBDH;T-40 Confirm all status indicators green;;3;;;;;00:05;
+0:10;OBDH;T-30 Disconnect from sbRio;;3;;;;;00:30;
+0:03;EGSE;T-10 Turn on Ignition Secure;;3;;;;;00:07;
+0:00;EGSE;T-3: Ignition;;3;;;;;00:03;
+0:00;OBDH;T+0: Verify RMOxOV Open (Launched);;3;;;;;00:00;
+0:00;EGSE;T+0:1: Turn OFF Ignition;;3;;;;;;
+0:00;EGSE;T+0:5: Turn OFF Ignition Secure;;3;;;;;;
+-1:-0;EGSE;T+0:15: Turn ON EPS_BAT (Rocket OFF);;3;;;;;01:00;
+-1:-0;OBDH;T+0:20: Verify RMOxOV Closed and RMOxSV Open (Cruise);;3;;;;;;
+-1:-0;OBDH;T+0:50: Verify RNCEV Open (Drogue);;3;;;;;;
+-1:-0;OBDH;T+05:10: Verify Main Chute Deployed and RDV Open (Main);;3;;;;;;
+-1:-0;OBDH;T+10:00: Verify (Landed);;3;;;;;;
+-1:-0;MCC;BEGIN SEQUENCE: PASSIVATION (PHASE YELLOW);Passivation;2;;;;;;
+-1:-0;MCC;Announce BEGIN of Radio Silence;;2;;;;;;
+-1:-0;MCC;Turn audio volume up;;2;;;;;;
+-1:-0;MRL;Go to MRL, THEN...;;2;;;;;;
+-1:-0;MRL;Close N2O Bottle 1 & N2O Bottle 2, THEN...;;2;;;;;;
+-1:-0;MRL;RETURN to Block House;;2;;;;;;
+-1:-0;EGSE;Open OxDV;;2;;;;;;
+-1:-0;EGSE;Open OxV1;;2;;;;;;
+-1:-0;EGSE;Confirm OxInPT1 & OxOutPT 0 Bar;;2;;;;;;
+-1:-0;EGSE;Close OxV1;;2;;;;;;
+-1:-0;EGSE;Open OxV2;;2;;;;;;
+-1:-0;EGSE;Confirm OxInPT2 & OxOutPT 0 Bar;;2;;;;;;
+-1:-0;EGSE;Close OxV2;;2;;;;;;
+-1:-0;EGSE;Close OxDV;;2;;;;;;
+-1:-0;MRL;Go to MRL, confirm OxInPG1 & OxInPG2 0 Bar, else RETURN to Block House, THEN...;;2;;;;;;
+-1:-0;MRL;Close He Bottle 2, THEN...;;2;;;;;;
+-1:-0;MRL;Write down remaining Pressure of He Bottle 2, THEN...;;2;;;;;;
+-1:-0;MRL;Return to Block House;;2;;;;;;
+-1:-0;EGSE;Open HPDV;;2;;;;;;
+-1:-0;EGSE;Open HPV2;;2;;;;;;
+-1:-0;EGSE;Confirm pressure HPLPT & HPPT2 0 Bar;;2;;;;;;
+-1:-0;EGSE;Close HPV2;;2;;;;;;
+-1:-0;EGSE;Close HPDV;;2;;;;;;
+-1:-0;MRL;Go to MRL, confirm HPPG2 0 Bar, else return to Block House, THEN...;;2;;;;;;
+-1:-0;MRL;Close He Bottle 1, THEN ...;;2;;;;;;
+-1:-0;MRL;Open ComTerm;;2;;;;;;
+-1:-0;MCC;Turn ON ComTerm step delay;;2;;;;;;
+-1:-0;MCC;Turn OFF MRL confirm lock;;2;;;;;;
+-1:-0;EGSE/ MRL;Write down remaining Pressure of He Bottle 1;;2;;;;;;
+-1:-0;MRL;Step back;;2;;;;;;
+-1:-0;EGSE;Open HPDV;;2;;;;;;
+-1:-0;EGSE;Open HPV1;;2;;;;;;
+-1:-0;EGSE;Confirm pressure HPLPT & HPPT1 0 Bar;;2;;;;;;
+-1:-0;EGSE;Close HPV1;;2;;;;;;
+-1:-0;EGSE;Close HPDV;;2;;;;;;
+-1:-0;EGSE;Confirm no high pressures in Ground Segment;;2;;;;;;
+-1:-0;MRL;Open MBV;;2;;;;;;
+-1:-0;EGSE/ MRL;Check and compare pressure HPPT1 with HPPG1;;2;;;;;;
+-1:-0;MRL;Close MBV;;2;;;;;;
+-1:-0;MRL;Take out B1 & B2 Bridges;;2;;;;;;
+-1:-0;MRL;Safety is ensured;;2;;;;;;
+-1:-0;MCC;Confirm to OPS that Safety is ensured;;2;;;;;;
+-1:-0;MCC;BEGIN SEQUENCE: Data collection;Data collection;1;;;;;;
+-1:-0;AVC;Turn off GoPro & Camcorder & Stop Block House Video recording;;1;;;;;;
+-1:-0;EGSE;Copy PID.vi.tdms & save to new name;;1;;;;;;
+-1:-0;EGSE;Wait for buffer storage process to be finished;;1;;;;;;
+-1:-0;EGSE;save data files from cRio to PC;;1;;;;;;
+-1:-0;WIND;Save data on external HDD;;1;;;;;;
+-1:-0;TMTC;Stop TMTC Vi and save data on external HDD;;1;;;;;;
+-1:-0;AVC;End audio recording;;1;;;;;;
+-1:-0;MCC;Stop ComTerm and save logfile to external HDD, THEN...;;1;;;;;;
+-1:-0;MCC;Restart ComTerm VI;;1;;;;;;
+-1:-0;AVC;Save video & audio data on external HDD;;1;;;;;;
+-1:-0;MCC;END OF PROCEDURE;End;1;;;;;;
