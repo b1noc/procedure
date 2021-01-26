@@ -1,4 +1,4 @@
-vers.;v4.39;Launch Procedure;;0;MRL;MCC;RdHill;Time per step
+vers.;v4.40;Launch Procedure;;0;MRL;MCC;RdHill;Time per step
 147:00;MCC;BEGIN SEQUENCE: Power on Electronic_Ground_Support_Equipment;Power on EGSE;1;;;;
 147:00;WIND;Start wind weighting analysis;;1;;;;
 147:00;EGSE;Check CLD connection;;1;;;;
@@ -27,14 +27,14 @@ vers.;v4.39;Launch Procedure;;0;MRL;MCC;RdHill;Time per step
 140:20;EGSE @MRL;Remove OBC2_BAT GROUND Bridge (4R);;1;;;;
 140:20;EGSE @MRL;Remove PAYLOAD1 GROUND Bridge (5R);;1;;;;
 140:20;EGSE @MRL;Remove RECOVERY_BAT GROUND Bridge (7R);;1;;;;
-140:20;EGSE;Turn ON EPS_BAT;;1;;;;
+140:20;EGSE;Turn ON EPS_BAT (Rocket OFF);;1;;;;
 140:20;EGSE;Turn ON EPS_EXT_24V;;1;;;;
 140:20;EGSE @MRL;Insert EXT_24V Bridge (1L);;1;;;;
 140:20;EGSE @MRL;Confirm EXT_24V LED is ON;;1;;;;
 140:20;EGSE @MRL;Insert MAIN_BUS Bridge (2L);;1;;;;
 140:20;EGSE @MRL;Confirm MAIN_BUS LED is OFF (if ON pull MAIN_BUS Bridge (2L) & Insert all grounding Bridges on the right side;;1;;;;
 140:20;EGSE @MRL;Remove EPS RADIO SILENCE Bridge (3R);;1;;;;
-140:20;EGSE;Turn OFF EPS_BAT;;1;;;;
+140:20;EGSE;Turn OFF EPS_BAT (Rocket ON);;1;;;;
 140:20;EGSE @MRL;Confirm MAIN_BUS LED is ON;;1;;;;
 140:20;EGSE @MRL;Confirm 1 beep at Telemega;;1;;;;
 140:20;MRL;Confirm 3 beeps at OBC1;;1;;;;
@@ -82,6 +82,7 @@ vers.;v4.39;Launch Procedure;;0;MRL;MCC;RdHill;Time per step
 128:00;EGSE/ MRL;Check RMOxSV (CLD & RT_VI);;1;;;;00:10
 127:50;OBDH;Activate Rocket Heater (heizi);;1;;;;00:10
 126:50;OBDH;Verify Rocket Heater (heizi) @ RDVT & RDVET;;1;;;;01:00
+128:40;OBDH;Turn OFF Rocket Heater;;1;;;;01:00
 126:40;OBDH/ MRL;Check RDV;;1;;;;00:10
 126:30;OBDH/ MRL;Check RNCEV;;1;;;;00:10
 126:20;OBDH/ MRL;Check RMOxOV;;1;;;;00:10
@@ -230,7 +231,8 @@ vers.;v4.39;Launch Procedure;;0;MRL;MCC;RdHill;Time per step
 104:50;OBDH;Confirm Main Chute button is disabled;;1;;;;
 104:40;OBDH;Check EPS hardware Voltages;;1;;;;00:10
 104:30;EGSE;Check EGSE Currents;;1;;;;00:10
-104:10;PYL;Confirm CanSat is running;;1;;;;00:20
+125:30;OBDH;Turn ON Camera and Confrim it's running;;1;;;;00:20
+125:30;OBDH;Turn OFF Camera;;1;;;;00:20
 104:10;PYL;Confirm BlackBox2 is running;;1;;;;
 104:10;EGSE;Turn OFF EPS_EXT_24V;;1;;;;
 103:50;PYL;Confirm CanSat is running;;1;;;;00:20
@@ -275,11 +277,14 @@ vers.;v4.39;Launch Procedure;;0;MRL;MCC;RdHill;Time per step
 86:30;EGSE;Confirm HPV2 is closed;;2;;;;
 86:30;EGSE;Close HPDV;;2;;;;
 86:30;MRL;Open HPNV2 1/8 Rev;;2;;;;
+0:00;MRL;Step Back;;2;;;;
 86:30;EGSE;Open & Close STEPWISE MPV1/2 to 50 Bar @ OxInPT1 & OxInPT2;;2;;;;
 86:30;EGSE/ MRL;Check & compare OxInPT1 with OxInPG1 based on Bottle temperature (max 50 bar);;2;;;;
 86:30;EGSE/ MRL;Check & compare pressure OxInPT2 with OxInPG2 based on Bottle temperature (max 50 bar);;2;;;;
 86:30;EGSE/ MRL;Check Temperature of N2O Bottle 1 @OxT1 & OxWT1 (max 22C);;2;;;;
 85:00;EGSE/ MRL;Check Temperature of N2O Bottle 2 @OxT2 & OxWT2 (max 22C);;2;;;;01:30
+78:00;MRL;Insert Ignition Bridges B1 and B2 into EGSE;;2;;;;02:00
+78:00;MRL;Confirm Soundsignal from Ignition Umbilical;;2;;;;
 85:00;MRL;Open He Bottle 2;;2;;;;
 84:00;EGSE/ MRL;Check & compare pressure HPPT2 with HPPG2 (max 315 bar);;2;;;;01:00
 84:00;ALL/ MRL;CAUTION!;;2;;;;
@@ -287,8 +292,6 @@ vers.;v4.39;Launch Procedure;;0;MRL;MCC;RdHill;Time per step
 82:00;MRL/ EGSE;Check & compare pressure OxInPT 1 with OxInPG 1 (max 50 bar);;2;;;;02:00
 82:00;MRL;Open N2O Bottle 2;;2;;;;
 80:00;MRL/ EGSE;Check & compare pressure OxInPT 2 with OxInPG 2 (max 50 bar);;2;;;;02:00
-78:00;MRL;Insert Ignition Bridges B1 and B2 into EGSE;;2;;;;02:00
-78:00;MRL;Confirm Soundsignal from Ignition Umbilical;;2;;;;
 78:00;MRL;Close ComTerm & Go to Block House;;2;;;;
 78:00;MCC;Turn OFF MRL confirm lock;;2;;;;
 76:00;ALL;Inform OPS to clear Launch Pad (Tel.: [!!!]);;2;;;;02:00
