@@ -1,4 +1,4 @@
-vers.;v5.8;Launch Procedure;;0;Remark;MCC;MRL;RdHill;Time per step;
+vers.;v5.9;Launch Procedure;;0;Remark;MCC;MRL;RdHill;Time per step;
 147:00;MCC;BEGIN SEQUENCE: Power on Electronic_Ground_Support_Equipment;Power on EGSE;1;;;;;;
 147:00;EGSE;Check CLD connection;;1;;;;;;
 147:00;EGSE;Switch ON CLD via Battery & check voltage (24 Volt);;1;;;;;;
@@ -502,6 +502,7 @@ vers.;v5.8;Launch Procedure;;0;Remark;MCC;MRL;RdHill;Time per step;
 -1:-0;MRL;Take out B1 & B2 Bridges;;2;;;;;;
 -1:-0;MRL;Safety is ensured;;2;;;;;;
 -1:-0;MCC;Confirm to OPS that Safety is ensured;;2;;;;;;
+-1:-0;MCC;END OF OPERATIONS;END OF OPERATIONS;2;;;;;;
 -1:-0;MCC;BEGIN SEQUENCE: Data collection;Data collection;1;;;;;;
 -1:-0;AVC;Turn off GoPro & Camcorder & Stop Block House Video recording;;1;;;;;;
 -1:-0;EGSE;Copy PID.vi.tdms & save to new name;;1;;;;;;
