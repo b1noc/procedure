@@ -33,7 +33,7 @@ BEGIN {
 NR==1 {
 	while(( getline sumf < FILENAME) > 0 ) {
 			split(sumf,sumc,";")
-			total = add(total,sumc[9])
+			total = add(total,sumc[10])
 			if (sumc[3] ~ /T\+0/){
 				break
 			}
@@ -47,7 +47,7 @@ NR==1 {
 }
 
 NR>=2 {
-	ct = subs(ct,$9)
+	ct = subs(ct,$10)
 	$1=ct
 	print $0 > "output.csv"
 }
