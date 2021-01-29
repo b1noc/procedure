@@ -1,4 +1,4 @@
-vers.;v5.12;Launch Procedure;;0;Remark;MCC;MRL;RdHill;Time per step;
+vers.;v5.13;Launch Procedure;;0;Remark;MCC;MRL;RdHill;Time per step;
 147:40;MCC;BEGIN SEQUENCE: Power on Electronic_Ground_Support_Equipment;Power on EGSE;1;;;;;;
 147:40;EGSE;Check CLD connection;;1;;;;;;
 147:40;EGSE;Switch ON CLD via Battery & check voltage (24 Volt);;1;;;;;;
@@ -86,7 +86,7 @@ vers.;v5.12;Launch Procedure;;0;Remark;MCC;MRL;RdHill;Time per step;
 138:00;EGSE/ OBDH;Turn on Ignition Switch for 2 Second & Confirm ignition signal received at sbRio & cRio;;1;;;;;;
 138:00;EGSE;Confirm that Ignition Switch is switched OFF and secured;;1;;;;;;
 138:00;EGSE;Turn off Ignition Secure Switch;;1;;;;;;
-138:00;EGSE;Set ignition Threshold to ? Ampere;;1;;;;;;
+138:00;EGSE;Set ignition Threshold to 10 Ampere;;1;;;;;;
 137:00;MCC;BEGIN SEQUENCE: Prepare Rocket for Valve test; Prepare Rocket Valve Test;1;;;;;01:00;
 137:00;OBDH;Disconnect from sbRio;;1;;;;;;
 137:00;EGSE;Turn ON EPS_BAT (Rocket OFF);;1;Power Down Rocket;;;;;01:00
@@ -302,7 +302,7 @@ vers.;v5.12;Launch Procedure;;0;Remark;MCC;MRL;RdHill;Time per step;
 94:30;MRL;Turn on GoPro Camera at end of Launch Rail;;2;;;;;00:20;
 94:30;MRL;Turn all Cameras on;;2;;;;;;
 94:30;EGSE @MRL;Leave MRL & return to Blockhouse;;2;;;;;;
-94:30;EGSE;Confirm ignition Threshold is set to ? Ampere;;1;;;;;;
+94:30;EGSE;Confirm ignition Threshold is set to 10 Ampere;;1;;;;;;
 94:00;MRL;Connect Ignition Umbilical;;2;;;;;00:30;
 89:00;OPS;Elevate MRL to 90 degrees;;2;;;;;05:00;
 89:00;MCC;BEGIN SEQUENCE: Fueling Preparations (PHASE YELLOW);Fueling Preparations;2;;;;;;
