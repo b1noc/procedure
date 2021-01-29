@@ -1,4 +1,4 @@
-vers.;v5.15;Launch Procedure;;0;Remark;MCC;MRL;RdHill;Time per step;
+vers.;v5.16;Launch Procedure;;0;Remark;MCC;MRL;RdHill;Time per step;
 147:40;MCC;BEGIN SEQUENCE: Power on Electronic_Ground_Support_Equipment;Power on EGSE;1;;;;;;
 147:40;EGSE;Check CLD connection;;1;;;;;;
 147:40;EGSE;Switch ON CLD via Battery & check voltage (24 Volt);;1;;;;;;

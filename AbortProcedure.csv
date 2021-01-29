@@ -1,4 +1,4 @@
-vers.;v5.16;Abort Procedure;;3;mrl;mcc;rdh;time
+vers.;v5.17;Abort Procedure;;3;mrl;mcc;rdh;time
 0:00;MCC;BEGIN SEQUENCE: Prepare Launch Abort;Prepare Launch Abort;3;;;;
 0:00;EGSE;Confirm Ignition is OFF;;3;;;;
 0:00;EGSE;Confirm Ignition Secure is OFF;;3;;;;
@@ -63,8 +63,28 @@ vers.;v5.16;Abort Procedure;;3;mrl;mcc;rdh;time
 0:00;EGSE/ MRL;Check and compare pressure HPPT1 with HPPG1;;2;;;;
 0:00;MRL;Close MBV;;2;;;;
 -1:-0;MRL;Take out B1 & B2 Bridges;;2;;;;;;
-
-
+0:00;EGSE @MRL;Go to MRL;;1;;;;;;
+0:00;MCC;BEGIN SEQUENCE: Disarm Rocket;Disarm Rocket;1;;;;;01:00;
+0:00;EGSE @MRL;Remove Bridges B1 and B2;;1;Remove Ignition Bridges;;;;;
+0:00;VEH @MRL;Confirm MAIN_BUS LED is OFF;;1;;;;;;
+0:00;VEH @MRL;Insert BLACKBOX2 RADIO SILENCE Bridge (6R);;1;;;;;;
+137:00;VEH @MRL;Insert EPS RADIO SILENCE Bridge (3R);;1;;;;;;
+137:00;VEH @MRL;Remove PAYLOAD2 Bridge (6L);;1;;;;;;
+137:00;VEH @MRL;Confirm PAYLOAD2 LED is OFF;;1;;;;;;
+137:00;VEH @MRL;Remove PAYLOAD1 Bridge (5L);;1;;;;;;
+137:00;VEH @MRL;Confirm PAYLOAD1 LED is OFF;;1;;;;;;
+137:00;VEH @MRL;Remove RECOVERY_BAT Bridge (7L);;1;;;;;;
+137:00;VEH @MRL;Confirm RECOVERY_BAT LED is OFF;;1;;;;;;
+137:00;VEH @MRL;Remove OBC2_BAT Bridge (4L);;1;;;;;;
+137:00;VEH @MRL;Confirm OBC2_BAT LED is OFF;;1;;;;;;
+137:00;VEH @MRL;Remove MAIN_BAT Bridge (3L);;1;;;;;;
+137:00;VEH @MRL;Confirm MAIN_BAT LED is OFF;;1;;;;;;
+128:00;VEH @MRL;Remove MAIN_BUS Bridge (2L);;1;;;;;;
+128:00;VEH @MRL;Confirm MAIN_BUS LED is OFF;;1;;;;;;
+128:00;VEH @MRL;Remove EXT_24V Bridge (1L);;1;;;;;;
+128:00;VEH @MRL;Confirm EXT_24V LED is OFF;;1;;;;;;
+128:00;VEH @MRL;Confirm EPS RADIO SILENCE Bridge (3R) and BLACKBOX2 RADIO SILENCE Bridge (6R) are inserted;;1;;;;;;
+128:00;VEH @MRL;Confirm ALL 8 bridges on the left side are removed;;1;;;;;;
 -1:-0;EGSE;Turn OFF HPDV;;2;;;;;;
 -1:-0;EGSE;Turn OFF OxDV;;2;;;;;;
 0:00;MRL;Disconnect Ignition Umbilical;;2;;;;00:30
