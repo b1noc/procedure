@@ -1,13 +1,15 @@
-vers.;v5.18;Abort Procedure;;3;mrl;mcc;rdh;time
+vers.;v5.20;Abort Procedure;;3;mrl;mcc;rdh;time
 0:00;MCC;BEGIN SEQUENCE: Prepare Launch Abort;Prepare Launch Abort;3;;;;
 0:00;EGSE;Confirm Ignition is OFF;;3;;;;
 0:00;EGSE;Confirm Ignition Secure is OFF;;3;;;;
+0:00;EGSE;If Ignition Umbilical is connected: Turn ON EPS_Bat (Rocket OFF);;3;;;;
 0:00;MCC;Inform OPS of Launch Abort;;3;;;;
 0:00;EGSE;Confirm all valve switches are in OFF position (Except OxDV & HPDV);;3;;;;
 0:00;OBDH;Confirm all valve switches are in OFF position (Except RMOxSV);;3;;;;
 0:00;MCC;Turn audio volume up;;3;;;;
+0:00;EGSE;Stop High-speed data recording;;3;;;;;01:00;
 0:00;MCC;BEGIN SEQUENCE: Defueling Rocket;Defueling;3;;;;
-0:00;OBDH;Activate Heizi;;3;;;;
+0:00;OBDH;Activate Rocket Heater (aka heizi);;3;;;;
 0:00;EGSE;Open & Close OxDV STEPWISE until OxOutPT 0 Bar;;3;;;;
 0:00;EGSE;Open OxDV;;3;;;;
 0:00;EGSE;Open MPV3;;3;;;;
@@ -18,15 +20,14 @@ vers.;v5.18;Abort Procedure;;3;mrl;mcc;rdh;time
 0:00;EGSE;Confirm HPLPT 0 bar;;3;;;;
 0:00;EGSE;Close HPDV;;3;;;;
 0:00;OBDH;Confirm ROxTPT & RHPPT 1 Bar, if more: Open & Close stepwise RDV;;3;;;;
-0:00;OBDH;Deactivate Heizi;;3;;;;
+0:00;OBDH;Deactivate Rocket Heater (aka heizi);;3;;;;
 0:00;ALL;Wait for Launchpad to be clear of N2O fumes depending on OxMass before Defueling;;3;;;;
 0:00;MCC;BEGIN SEQUENCE: Ground support equipment passivation;GSE Passivation;3;;;;
 0:00;EGSE;Turn ON EPS_BAT (Rocket OFF);;2;;;;
 0:00;MCC;Announce BEGIN of Radio Silence;;3;;;;
 0:00;MRL;Go to MRL, THEN...;;2;;;;
 0:00;MRL;Close N2O Bottle 1 & N2O Bottle 2, THEN...;;2;;;;
-0:00;MRL;Take out Bridges B1 & B2 from EGSE, THEN...;;2;;;;
-0:00;MRL;RETURN to Block House;;2;;;;
+0:00;MRL;GO to MAXUS Tower;;2;;;;
 0:00;EGSE;Open OxDV;;2;;;;
 0:00;EGSE;Open OxV1;;2;;;;
 0:00;EGSE;Confirm OxInPT1 & OxOutPT 0 Bar;;2;;;;
@@ -35,17 +36,18 @@ vers.;v5.18;Abort Procedure;;3;mrl;mcc;rdh;time
 0:00;EGSE;Confirm OxInPT2 & OxOutPT 0 Bar;;2;;;;
 0:00;EGSE;Close OxV2;;2;;;;
 0:00;EGSE;Close OxDV ;;2;;;;
-0:00;MRL;Go to MRL, confirm OxInPG1 & OxInPG2 0 Bar, else RETURN to Block House, THEN...;;2;;;;
+0:00;MRL;Go to MRL, confirm OxInPG1 & OxInPG2 0 Bar, else RETURN to MAXUS Tower, THEN...;;2;;;;
 0:00;MRL;Close He Bottle 2, THEN...;;2;;;;
+0:00;MRL;Take out Bridges B1 & B2 from EGSE, THEN...;;2;;;;
 0:00;MRL;Write down remaining Pressure of He Bottle 2, THEN...;;2;;;;
-0:00;MRL;Return to Block House;;2;;;;
+0:00;MRL;Go to MAXUS Tower;;2;;;;
 0:00;EGSE;Open HPDV;;2;;;;
 0:00;EGSE;Open HPV2;;2;;;;
 0:00;EGSE;Confirm pressure HPLPT & HPPT2 0 Bar;;2;;;;
 0:00;EGSE;Close HPV2;;2;;;;
 0:00;EGSE;Close HPDV;;2;;;;
 0:00;MCC;Lower MRL to 0 degrees;;2;;;;05:00
-0:00;MRL;Go to Testrig, confirm HPPG2 0 Bar, else return to Block House, THEN...;;2;;;;
+0:00;MRL;Go to MRL, confirm HPPG2 0 Bar, else return to MAXUS Tower, THEN...;;2;;;;
 0:00;MRL;Remove HP section maintenance cover, THEN...;;2;;;;
 0:00;MRL;Open RMDV & Step Back, Wait until NCE-Tank is pressureless, THEN...;;2;;;;
 0:00;MRL;Close He Bottle 1, THEN ...;;2;;;;
@@ -58,12 +60,11 @@ vers.;v5.18;Abort Procedure;;3;mrl;mcc;rdh;time
 0:00;EGSE;Confirm pressure HPLPT & HPPT1 0 Bar;;2;;;;
 0:00;EGSE;Close HPV1;;2;;;;
 0:00;EGSE;Close HPDV;;2;;;;
-0:00;EGSE;Pressure Check;;2;;;;
+0:00;EGSE;Confirm no high pressures in Ground Segment;;2;;;;;;
 0:00;MRL;Open MBV;;2;;;;
 0:00;EGSE/ MRL;Check and compare pressure HPPT1 with HPPG1;;2;;;;
 0:00;MRL;Close MBV;;2;;;;
--1:-0;MRL;Take out B1 & B2 Bridges;;2;;;;;;
-0:00;EGSE @MRL;Go to MRL;;1;;;;;;
+0:00;MCC;EGSE @MRL Go to MRL;;1;;;;;;
 0:00;MCC;BEGIN SEQUENCE: Disarm Rocket;Disarm Rocket;1;;;;;01:00;
 0:00;EGSE @MRL;Remove Bridges B1 and B2;;1;Remove Ignition Bridges;;;;;
 0:00;VEH @MRL;Confirm MAIN_BUS LED is OFF;;1;;;;;;
@@ -88,6 +89,8 @@ vers.;v5.18;Abort Procedure;;3;mrl;mcc;rdh;time
 -1:-0;EGSE;Turn OFF HPDV;;2;;;;;;
 -1:-0;EGSE;Turn OFF OxDV;;2;;;;;;
 0:00;MRL;Disconnect Ignition Umbilical;;2;;;;00:30
+-1:-0;EGSE;Turn OFF EXT_24V;;3;;;;;;
+-1:-0;EGSE;Turn OFF EPS_BAT;;3;;;;;;
 0:00;MRL;Safety is ensured;;2;;;;
 0:00;MCC;Confirm to OPS that Safety is ensured;;1;;;;
 -1:-0;MCC;END OF OPERATIONS;END OF OPERATIONS;2;;;;;;
